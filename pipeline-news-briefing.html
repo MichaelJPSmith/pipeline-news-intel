@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space-Comm Pipeline News Intel - Daily Briefing</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1520; color: #e0e6f0; min-height: 100vh; }
+  .header { background: #16223b; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #d40075; flex-wrap: wrap; gap: 12px; }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .logo { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .logo span { color: #d40075; }
+  .badge { background: #d40075; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .header-right { font-size: 13px; color: #8899bb; }
+  .stats-bar { background: #1e2d4a; padding: 16px 32px; display: flex; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid #2a3d5c; align-items: center; }
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: #d40075; }
+  .stat-label { font-size: 11px; color: #8899bb; text-transform: uppercase; letter-spacing: 0.5px; }
+  .date-note { margin-left: auto; font-size: 12px; color: #8899bb; display: flex; align-items: center; padding: 8px 12px; background: #16223b; border-radius: 6px; border: 1px solid #2a3d5c; }
+  .filters { padding: 20px 32px 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .filter-btn { background: #1e2d4a; border: 1px solid #2a3d5c; color: #8899bb; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: #d40075; border-color: #d40075; color: #fff; }
+  .filter-row-label { padding: 4px 32px 6px; font-size: 11px; color: #556688; text-transform: uppercase; letter-spacing: 0.5px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; padding: 16px 32px 32px; }
+  .card { background: #1e2d4a; border: 1px solid #2a3d5c; border-radius: 10px; padding: 22px; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .card.hot-pipeline { border-left: 4px solid #d40075; }
+  .card.autumn-close { border-left: 4px solid #f59e0b; }
+  .card.engagement { border-left: 4px solid #0093d3; }
+  .card.cold-outreach { border-left: 4px solid #334466; }
+  .card.hidden { display: none; }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .company-name { font-size: 18px; font-weight: 700; color: #fff; }
+  .company-meta { font-size: 12px; color: #8899bb; margin-top: 3px; }
+  .stage-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 12px; white-space: nowrap; text-align: right; }
+  .stage-hot { background: rgba(212,0,117,0.15); border: 1px solid #d40075; color: #d40075; }
+  .stage-autumn { background: rgba(245,158,11,0.15); border: 1px solid #f59e0b; color: #f59e0b; }
+  .stage-engagement { background: rgba(0,147,211,0.15); border: 1px solid #0093d3; color: #0093d3; }
+  .stage-cold { background: rgba(85,102,136,0.12); border: 1px solid #334466; color: #8899bb; }
+  .alert-badge { display: inline-block; background: rgba(212,0,117,0.15); border: 1px solid #d40075; color: #d40075; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 12px; }
+  .tag.contract { background: rgba(34,197,94,0.12); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+  .tag.funding { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+  .tag.ma { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+  .tag.launch { background: rgba(0,147,211,0.12); color: #0093d3; border: 1px solid rgba(0,147,211,0.3); }
+  .tag.award { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+  .tag.partnership { background: rgba(45,212,191,0.12); color: #2dd4bf; border: 1px solid rgba(45,212,191,0.3); }
+  .summary { font-size: 13px; color: #b0bdd4; line-height: 1.7; margin-bottom: 14px; }
+  .outreach { background: rgba(212,0,117,0.07); border: 1px solid rgba(212,0,117,0.25); border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; }
+  .outreach-label { font-size: 10px; font-weight: 700; color: #d40075; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .outreach-text { font-size: 13px; color: #d4a0bc; line-height: 1.5; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #2a3d5c; padding-top: 12px; }
+  .card-date { font-size: 12px; color: #8899bb; }
+  .source-link { font-size: 12px; color: #0093d3; text-decoration: none; font-weight: 600; }
+  .source-link:hover { color: #d40075; }
+  .no-results { display: none; padding: 48px 32px; text-align: center; color: #556688; font-size: 14px; }
+  .footer { background: #16223b; border-top: 1px solid #2a3d5c; padding: 20px 32px; text-align: center; font-size: 12px; color: #556688; margin-top: 8px; }
+  .footer strong { color: #8899bb; }
+  @media (max-width: 600px) {
+    .header, .stats-bar, .filters, .grid { padding-left: 16px; padding-right: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .date-note { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">Space<span>-</span>Comm</div>
+    <div class="badge">Pipeline News Intel</div>
+  </div>
+  <div class="header-right">Daily Outreach Briefing &nbsp;|&nbsp; 23 June 2026</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-value" id="visibleCount">19</div><div class="stat-label">Pipeline Matches</div></div>
+  <div class="stat"><div class="stat-value">2</div><div class="stat-label">Hot Pipeline</div></div>
+  <div class="stat"><div class="stat-value">3</div><div class="stat-label">Autumn Close</div></div>
+  <div class="stat"><div class="stat-value">9</div><div class="stat-label">Contracts Won</div></div>
+  <div class="date-note">23 June 2026 &nbsp;|&nbsp; 474 companies monitored</div>
+</div>
+
+<div class="filter-row-label">Filter by pipeline stage</div>
+<div class="filters">
+  <button class="filter-btn active" onclick="filterCards('all', this)">All matches</button>
+  <button class="filter-btn" onclick="filterCards('hot', this)">&#128293; Hot pipeline</button>
+  <button class="filter-btn" onclick="filterCards('autumn', this)">&#127810; Autumn Close</button>
+  <button class="filter-btn" onclick="filterCards('engagement', this)">&#128172; Engagement</button>
+  <button class="filter-btn" onclick="filterCards('cold', this)">&#10052; Cold Outreach</button>
+</div>
+<div class="filter-row-label">Filter by news type</div>
+<div class="filters" style="padding-top:0;">
+  <button class="filter-btn" onclick="filterCards('contract', this)">&#9989; Contracts Won</button>
+  <button class="filter-btn" onclick="filterCards('funding', this)">&#128176; Funding &amp; M&amp;A</button>
+  <button class="filter-btn" onclick="filterCards('launch', this)">&#128640; Launches</button>
+  <button class="filter-btn" onclick="filterCards('award', this)">&#127942; Awards</button>
+</div>
+
+<div class="grid" id="cardGrid">
+
+  <!-- ICEYE -->
+  <div class="card hot-pipeline" data-pipeline="hot" data-type="contract">
+    <div class="alert-badge">&#128293; Discovery Call Booked</div>
+    <div class="card-top">
+      <div>
+        <div class="company-name">ICEYE &#x1F1EB;&#x1F1EE;</div>
+        <div class="company-meta">Finland &nbsp;|&nbsp; SAR Earth Observation</div>
+      </div>
+      <div class="stage-badge stage-hot">Discovery Call Booked</div>
+    </div>
+    <div class="tags"><span class="tag contract">Contract Win</span><span class="tag partnership">NASA Programme</span></div>
+    <div class="summary">NASA selected ICEYE US as one of eight new awardees on the Commercial Satellite Data Acquisition (CSDA) On-Ramp 2 contract on 23 June 2026. The IDIQ contract carries a maximum cumulative value of $476 million across all awardees through November 2028, giving ICEYE direct access to NASA's Earth science research and applications pipeline.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Your NASA CSDA contract validates ICEYE as critical data infrastructure for Earth observation - congratulations. We have a discovery call in the diary. This news is a perfect hook to get that call on the calendar now: Space-Comm Expo Europe 2027 is where European defence, civil and commercial EO buyers are making decisions about SAR data providers.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Blue Origin -->
+  <div class="card hot-pipeline" data-pipeline="hot" data-type="partnership">
+    <div class="alert-badge">&#128293; Discovery Call Booked</div>
+    <div class="card-top">
+      <div>
+        <div class="company-name">Blue Origin &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Launch &amp; Human Spaceflight</div>
+      </div>
+      <div class="stage-badge stage-hot">Discovery Call Booked</div>
+    </div>
+    <div class="tags"><span class="tag partnership">Artemis Programme</span><span class="tag launch">Human Spaceflight</span></div>
+    <div class="summary">NASA confirmed on 9 June 2026 that Blue Origin's Blue Moon Mark 2 is one of two Human Landing System vehicles selected for the Artemis 3 mission crew announcement. The mission will bring Orion together with Blue Moon and SpaceX's Starship in a low Earth orbit rendezvous test - putting Blue Origin at the centre of the US return-to-Moon programme for 2028.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Blue Moon confirmed for Artemis 3 is enormous news. You're at the centre of the most significant human spaceflight programme in a generation. We have a call in the diary - let's use this momentum. Space-Comm Expo Europe 2027 is where European space agencies, primes and supply chain partners will be watching the Artemis ecosystem - and they want to meet the companies building it.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">9 June 2026</div>
+      <a href="https://www.nasa.gov/2026-news-releases/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Lockheed Martin -->
+  <div class="card autumn-close" data-pipeline="autumn" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Lockheed Martin &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Defence &amp; Space Prime</div>
+      </div>
+      <div class="stage-badge stage-autumn">Autumn Close</div>
+    </div>
+    <div class="tags"><span class="tag contract">Contract Win</span><span class="tag partnership">Golden Dome</span></div>
+    <div class="summary">Lockheed Martin was named among a select group of companies awarded US Space Force contracts worth up to $3.2 billion to develop prototypes for space-based interceptors under President Trump's Golden Dome missile defence plan in April 2026. Lockheed is now one of the lead contractors on the most ambitious US space defence initiative since the Strategic Defense Initiative.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Your Golden Dome contract puts Lockheed at the centre of US space-based missile defence at exactly the moment European NATO allies are accelerating their own space security investments. Space-Comm Expo Europe 2027 brings together the European defence procurement and policy decision-makers who need to understand what US space-based interceptors mean for the continent - and your sponsorship is the statement.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">April 2026</div>
+      <a href="https://fortune.com/2026/04/25/spacex-anduril-lockheed-raytheon-northrop-golden-dome-interceptor-contracts/" target="_blank" class="source-link">Fortune &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Airbus -->
+  <div class="card autumn-close" data-pipeline="autumn" data-type="ma">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Airbus &#x1F1EA;&#x1F1FA;</div>
+        <div class="company-meta">Europe &nbsp;|&nbsp; Space Prime</div>
+      </div>
+      <div class="stage-badge stage-autumn">Autumn Close</div>
+    </div>
+    <div class="tags"><span class="tag ma">Merger</span><span class="tag partnership">European Space</span></div>
+    <div class="summary">Airbus, Leonardo, and Thales signed a memorandum of understanding to merge their space operations into a new joint venture - a landmark consolidation of Europe's fragmented space industrial base. The new entity will represent the combined space manufacturing and systems capabilities of Europe's three largest defence and aerospace primes, reshaping the supplier landscape for every company in the sector.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">The Airbus/Leonardo/Thales merger is the biggest restructuring of European space manufacturing in decades. The new entity's supply chain strategy, procurement decisions, and partner relationships are all being reset right now. Space-Comm Expo Europe 2027 at ExCeL London is the natural place for the new European space prime to signal its direction to the industry - as a sponsor or anchor exhibitor.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">October 2025 - ongoing</div>
+      <a href="https://spacenews.com/airbus-leonardo-and-thales-agree-to-combine-space-businesses/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- University of Edinburgh -->
+  <div class="card autumn-close" data-pipeline="autumn" data-type="award">
+    <div class="card-top">
+      <div>
+        <div class="company-name">University of Edinburgh &#x1F1EC;&#x1F1E7;</div>
+        <div class="company-meta">UK &nbsp;|&nbsp; Space Research &amp; Academia</div>
+      </div>
+      <div class="stage-badge stage-autumn">Autumn Close</div>
+    </div>
+    <div class="tags"><span class="tag award">Prize Won</span><span class="tag partnership">Planetary Defence</span></div>
+    <div class="summary">Researchers Brian P. Murphy and Richard E. Cannon from the University of Edinburgh won the B612 Foundation's 2026 Schweickart Prize on 23 June 2026. Their winning proposal - "Untold Threats: A Worldwide Call to Defend New Frontiers" - calls for planetary defence to extend beyond Earth, covering the expanding ecosystem of satellites, lunar infrastructure, and future space industries threatened by meteoroid storms and asteroid deflection ejecta.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Congratulations - Edinburgh researchers winning the global Schweickart Prize is recognition at the highest level. It's a great hook: "We saw the Schweickart Prize news today - brilliant work from your team. We'd love to give this research a platform at Space-Comm Expo Europe 2027. Academic-industry collaboration on space sustainability is exactly what our audience wants to see."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.prnewswire.com/news-releases/b612-foundation-announces-2026-winner-of-the-schweickart-prize-302805176.html" target="_blank" class="source-link">PR Newswire &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- GHGSat -->
+  <div class="card engagement" data-pipeline="engagement" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">GHGSat &#x1F1E8;&#x1F1E6;</div>
+        <div class="company-meta">Canada &nbsp;|&nbsp; Greenhouse Gas Monitoring</div>
+      </div>
+      <div class="stage-badge stage-engagement">Engagement</div>
+    </div>
+    <div class="tags"><span class="tag contract">Contract Win</span><span class="tag partnership">NASA Programme</span></div>
+    <div class="summary">GHGSat was named among the NASA CSDA On-Ramp 2 awardees on 23 June 2026, joining the agency's commercial satellite data programme alongside seven other new providers. The $476M IDIQ contract gives GHGSat access to NASA's Earth science research pipeline and formally positions their methane and CO2 monitoring data as government-grade infrastructure through November 2028.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Your NASA contract is live today - congratulations. You've already responded to us which tells us there's interest. This is the perfect moment: "Saw the NASA CSDA announcement today - well deserved. With this kind of validation behind you, Space-Comm Expo Europe 2027 is where European energy, regulatory and climate finance buyers come to find exactly what GHGSat offers. Let's talk."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Kuva Space -->
+  <div class="card engagement" data-pipeline="engagement" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Kuva Space &#x1F1EB;&#x1F1EE;</div>
+        <div class="company-meta">Finland &nbsp;|&nbsp; Hyperspectral Earth Observation</div>
+      </div>
+      <div class="stage-badge stage-engagement">Engagement</div>
+    </div>
+    <div class="tags"><span class="tag contract">Contract Win</span><span class="tag partnership">NASA Programme</span></div>
+    <div class="summary">Kuva US Inc., the US entity of Finnish hyperspectral EO company Kuva Space, was selected for the NASA CSDA On-Ramp 2 contract on 23 June 2026. The award adds Kuva's hyperspectral data products to NASA's approved commercial satellite data catalogue, providing access to Earth science researchers and civil agency decision-makers through November 2028.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">NASA validating Kuva's hyperspectral data today is a strong hook. You've already engaged with us - this keeps the conversation warm: "Congratulations on the NASA contract - Kuva's hyperspectral capability is getting the recognition it deserves. European agricultural, environmental and defence buyers are exactly the audience at Space-Comm Expo Europe 2027. Let's pin down a stand."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- AST SpaceMobile -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="launch">
+    <div class="card-top">
+      <div>
+        <div class="company-name">AST SpaceMobile &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Space-Based Cellular Broadband</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag launch">Satellite Launch</span><span class="tag contract">SDA Contract</span></div>
+    <div class="summary">AST SpaceMobile launched BlueBirds 8, 9 and 10 on 17 June 2026 - the largest commercial communications arrays ever deployed in low Earth orbit at approximately 2,400 sq ft each. On 23 June they announced BlueBirds 11, 12 and 13 targeting launch in August. Earlier in the year, AST was awarded a $30M prime contract by the US Space Development Agency under the HALO Europa programme.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Three BlueBirds up, three more in August, and a Space Development Agency contract - AST's momentum is undeniable right now. That's the hook: "BlueBirds 8-10 in orbit, 8-13 by August - you're building the first true space-based cellular network. Space-Comm Expo Europe 2027 is where European telecoms operators, regulators and connectivity buyers are. They need to meet AST."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">17-23 June 2026</div>
+      <a href="https://www.businesswire.com/news/home/20260617420856/en/AST-SpaceMobile-Announces-Successful-Orbital-Launch-of-BlueBirds-8-9-and-10" target="_blank" class="source-link">Business Wire &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Axiom Space -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="funding">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Axiom Space &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Commercial Space Station</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag funding">$525M Close</span><span class="tag partnership">ESA Engagement</span></div>
+    <div class="summary">Axiom Space has had an extraordinary June: $525M oversubscribed financing closed on 4 June with MUFG Bank joining as a new investor; Axiom Space Switzerland established in Lucerne on 2 June as their ESA engagement vehicle; and the company redomiciled to Texas on 23 June. Three major announcements in one month signal a company in active European expansion mode.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">You just set up a Swiss subsidiary specifically to engage ESA, closed $525M, and redomiciled - all in June. That European ambition needs a European platform. Space-Comm Expo Europe 2027 at ExCeL London is where ESA procurement, European space agencies and commercial station customers come together. Your Lucerne office needs to be in the room.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">2-23 June 2026</div>
+      <a href="https://www.axiomspace.com/release/axiom-space-closes-oversubscribed-financing-at-525m" target="_blank" class="source-link">Axiom Space &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- SpaceX -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="funding">
+    <div class="card-top">
+      <div>
+        <div class="company-name">SpaceX &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Launch &amp; Satellite Services</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag funding">$1.77T IPO</span><span class="tag contract">$6.45B Space Force</span></div>
+    <div class="summary">SpaceX went public on NASDAQ on 12 June 2026 under ticker "SPCX" at a valuation of $1.77 trillion, the largest IPO in history. Weeks earlier, the company was awarded $6.45 billion in Space Force contracts including a $4.16B threat-detection satellite deal. A public SpaceX with a new shareholder base now has explicit obligations around international market development and European presence.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">SpaceX is now public at $1.77 trillion with a shareholder base expecting global market leadership. European customers, partners and regulators represent the single biggest untapped market for Starlink, launch services and Starshield. Space-Comm Expo Europe 2027 is the continent's largest commercial space gathering - a public SpaceX showing up in London is the statement the market expects.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">12 June 2026</div>
+      <a href="https://techcrunch.com/2026/05/29/spacex-awarded-6-45b-in-space-force-contracts-ahead-of-ipo/" target="_blank" class="source-link">TechCrunch &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Spaceflux -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Spaceflux &#x1F1EC;&#x1F1E7;</div>
+        <div class="company-meta">UK &nbsp;|&nbsp; Space Surveillance &amp; Tracking</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">UK Gov Contract</span><span class="tag award">All Three Lots</span></div>
+    <div class="summary">Spaceflux won all three of the UK Government's major multimillion-pound, multiyear space surveillance and tracking contracts under the National Space Operations Centre framework. Awarded jointly by the UK Space Agency and Ministry of Defence, the contracts cover surveillance across multiple orbital regimes - a landmark outcome for a UK space startup and a sign of the growing space domain awareness market.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Winning all three UK Government SST contracts is a defining moment for Spaceflux - the UKSA and MoD have put their full confidence in you. That deserves a proper platform: "Congratulations on sweeping all three National Space Operations Centre contracts. Space-Comm Expo Europe 2027 is where the UK space industry celebrates exactly this kind of success - and where your European expansion starts."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">2026</div>
+      <a href="https://www.adsadvance.co.uk/spaceflux-awarded-uk-government-space-surveillance-and-tracking-contracts.html" target="_blank" class="source-link">ADS Advance &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Blue Canyon Technologies -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="ma">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Blue Canyon Technologies &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Smallsat Manufacturing</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag ma">$620M Acquisition</span><span class="tag partnership">MDA Space</span></div>
+    <div class="summary">MDA Space signed a definitive agreement on 19 June 2026 to acquire Blue Canyon Technologies from RTX's Raytheon unit for $620 million cash - the largest smallsat transaction of the year. BCT has launched over 90 spacecraft with 3,500+ components on orbit. The deal gives MDA an immediate US defence foothold and adds an estimated $3.5 billion to MDA's pipeline.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Post-acquisition, the new MDA/BCT entity will be consolidating European supply chain and defence partnerships. The timing is perfect: "Congratulations on the MDA acquisition - BCT's technology now has a transatlantic parent with European ambitions. Space-Comm Expo Europe 2027 at ExCeL London is where European programme leads, smallsat supply chain and defence primes come together - the ideal launch pad for MDA/BCT in Europe."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">19 June 2026</div>
+      <a href="https://mda.space/article/mda-space-announces-definitive-agreement-to-acquire-us-based-blue-canyon-technologies-llc" target="_blank" class="source-link">MDA Space &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Thales Alenia Space -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Thales Alenia Space &#x1F1EB;&#x1F1F7;</div>
+        <div class="company-meta">France/Italy &nbsp;|&nbsp; Space Systems Integrator</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag ma">European Merger</span><span class="tag contract">Polish MoD Satellite</span></div>
+    <div class="summary">Thales Alenia Space is at the centre of two major European moves: the Airbus/Leonardo/Thales MOU to merge European space operations into a new joint venture; and a signed industrial cooperation agreement with RADMOR and Airbus to develop a geostationary defence telecommunications satellite for the Polish Ministry of Defence. Two simultaneous strategic plays repositioning Thales as the anchor of European space manufacturing.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Thales Alenia Space is building European space infrastructure on two fronts at once - the continental merger and a Polish national defence satellite. Space-Comm Expo Europe 2027 is the right stage for the new European space entity to introduce itself to the supply chain, agency partners and sovereign customers that will define its first years.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">April 2026 - ongoing</div>
+      <a href="https://www.thalesaleniaspace.com/en/press-releases/thales-alenia-space-signed-contract-european-space-agency-develop-low-earth-orbit" target="_blank" class="source-link">Thales Alenia Space &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Northrop Grumman -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Northrop Grumman &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Defence &amp; Space Prime</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">Golden Dome Contract</span></div>
+    <div class="summary">Northrop Grumman was among the 12 companies awarded US Space Force contracts worth up to $3.2 billion for space-based interceptor prototypes under the Golden Dome programme in April 2026. Northrop is now formally embedded in the most significant US space defence initiative in decades, alongside Lockheed, Anduril, SpaceX and others developing the architecture for space-based missile defence.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Your Golden Dome contract is the hook: "Congratulations on the space-based interceptor award - Northrop is now central to the US missile defence architecture that every European NATO ally is watching closely. Space-Comm Expo Europe 2027 is where European defence and space security decision-makers are. They need to understand what Golden Dome means for the continent."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">April 2026</div>
+      <a href="https://fortune.com/2026/04/25/spacex-anduril-lockheed-raytheon-northrop-golden-dome-interceptor-contracts/" target="_blank" class="source-link">Fortune &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Anduril Industries -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Anduril Industries &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Defence Technology</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">Golden Dome Contract</span></div>
+    <div class="summary">Anduril Industries won Golden Dome space-based interceptor contracts alongside Lockheed Martin, SpaceX, Raytheon and Northrop Grumman in April 2026. The contracts cover development of space-based interceptor prototypes for the US missile defence architecture - positioning Anduril's autonomous systems and AI-driven defence technology at the heart of next-generation space security infrastructure.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Anduril winning Golden Dome contracts puts you in the same conversation as Lockheed and Northrop on space-based defence. European NATO allies are accelerating their own space security programmes and need to understand what autonomous systems in orbit means for collective defence. Space-Comm Expo Europe 2027 is where that conversation happens.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">April 2026</div>
+      <a href="https://fortune.com/2026/04/25/spacex-anduril-lockheed-raytheon-northrop-golden-dome-interceptor-contracts/" target="_blank" class="source-link">Fortune &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- OroraTech -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">OroraTech &#x1F1E9;&#x1F1EA;</div>
+        <div class="company-meta">Germany &nbsp;|&nbsp; Thermal Intelligence &amp; Wildfire EO</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">NASA Contract</span><span class="tag partnership">CSDA Programme</span></div>
+    <div class="summary">OroraTech USA was selected for the NASA Commercial Satellite Data Acquisition On-Ramp 2 contract on 23 June 2026. The German thermal intelligence company - building a constellation for global wildfire detection and climate resilience - now has its satellite data formally integrated into NASA's Earth science research and civil agency infrastructure through November 2028.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">NASA putting their stamp on OroraTech's thermal data today is the hook you need: "Congratulations on the NASA CSDA contract - global recognition for what OroraTech is building. European governments, insurers and energy companies are making decisions about wildfire and climate monitoring right now. Space-Comm Expo Europe 2027 is where they shop."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- Wyvern -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Wyvern &#x1F1E8;&#x1F1E6;</div>
+        <div class="company-meta">Canada &nbsp;|&nbsp; Hyperspectral Earth Observation</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">NASA Contract</span><span class="tag partnership">CSDA Programme</span></div>
+    <div class="summary">Wyvern was named in NASA's CSDA On-Ramp 2 contract awards on 23 June 2026, joining the agency's approved commercial satellite data programme. Wyvern's sub-metre hyperspectral imaging technology is now formally validated as government-grade data infrastructure, adding NASA to its customer base alongside existing commercial and government clients.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">The NASA contract today is the perfect cold outreach opener: "Saw the NASA CSDA announcement - congratulations. Wyvern's hyperspectral capability just got its biggest endorsement yet. Space-Comm Expo Europe 2027 puts you in front of European agricultural, environmental monitoring and defence buyers who are actively evaluating hyperspectral providers. Worth a conversation."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- SATLANTIS -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">SATLANTIS &#x1F1EA;&#x1F1F8;</div>
+        <div class="company-meta">Spain &nbsp;|&nbsp; Compact Earth Observation</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">NASA Contract</span><span class="tag partnership">CSDA Programme</span></div>
+    <div class="summary">SATLANTIS US was selected for the NASA CSDA On-Ramp 2 contract on 23 June 2026. The Spanish company's ultra-compact, high-resolution Earth observation technology is now formally part of NASA's commercial data ecosystem. SATLANTIS has also announced a partnership with SynMax to deliver persistent global intelligence to defence customers.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Two pieces of news in one day - NASA contract and a SynMax defence partnership. That's serious momentum: "Congratulations on both the NASA CSDA award and the SynMax partnership - SATLANTIS is building real validation across civil and defence markets simultaneously. Space-Comm Expo Europe 2027 is the European stage that matches that ambition."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">23 June 2026</div>
+      <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
+    </div>
+  </div>
+
+  <!-- CGI -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract">
+    <div class="card-top">
+      <div>
+        <div class="company-name">CGI &#x1F1EC;&#x1F1E7;</div>
+        <div class="company-meta">UK &nbsp;|&nbsp; Space Technology &amp; IT Services</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">£65M UKSA Contract</span></div>
+    <div class="summary">The UK Government awarded CGI UK a £65 million, five-year contract in May 2026 to build a new space system that will protect British military satellites - creating 100 skilled jobs in Leatherhead, Reading and Bristol. The contract was announced by the Defence Equipment and Support organisation and represents one of the largest UK domestic space security investments of the year.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">A £65M UK satellite protection contract and 100 new jobs is exactly the kind of announcement that deserves a public platform: "Congratulations on the DE&S contract - a landmark win for UK-made space security capability. Space-Comm Expo Europe 2027 is where the UK space and defence industry gathers - a natural place for CGI to showcase what this contract means for British space."</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">May 2026</div>
+      <a href="https://www.gov.uk/government/news/new-space-system-will-better-protect-uk-satellites-as-new-imagery-released" target="_blank" class="source-link">GOV.UK &#x2197;</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="no-results" id="noResults">No matches found for this filter.</div>
+
+<div class="footer">
+  <strong>Space-Comm Pipeline News Intel</strong> &nbsp;|&nbsp; 474 active pipeline companies monitored &nbsp;|&nbsp; 23 June 2026<br>
+  <span style="margin-top:4px;display:inline-block;">Matches verified against live news sources. Outreach angles are starting points - adapt to your last contact note.</span>
+</div>
+
+<script>
+  function filterCards(type, el) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+
+    const cards = document.querySelectorAll('#cardGrid .card');
+    cards.forEach(card => {
+      const pipeline = card.dataset.pipeline;
+      const newsType = card.dataset.type;
+      let show = false;
+
+      if (type === 'all') {
+        show = true;
+      } else if (type === 'hot') {
+        show = pipeline === 'hot';
+      } else if (type === 'autumn') {
+        show = pipeline === 'autumn';
+      } else if (type === 'engagement') {
+        show = pipeline === 'engagement';
+      } else if (type === 'cold') {
+        show = pipeline === 'cold';
+      } else if (type === 'contract') {
+        show = newsType === 'contract';
+      } else if (type === 'funding') {
+        show = newsType === 'funding' || newsType === 'ma';
+      } else if (type === 'launch') {
+        show = newsType === 'launch' || newsType === 'partnership';
+      } else if (type === 'award') {
+        show = newsType === 'award';
+      }
+
+      card.classList.toggle('hidden', !show);
+    });
+
+    const visible = document.querySelectorAll('#cardGrid .card:not(.hidden)').length;
+    document.getElementById('visibleCount').textContent = visible;
+
+    const noResults = document.getElementById('noResults');
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+</script>
+
+</body>
+</html>
