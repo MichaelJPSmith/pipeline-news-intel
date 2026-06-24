@@ -24,7 +24,7 @@
   .filter-btn:hover { border-color: #d40075; color: #d40075; }
   .filter-btn.active { background: #d40075; border-color: #d40075; color: #fff; }
   .filter-btn.owner-btn.active-cameron { background: #0093d3; border-color: #0093d3; color: #fff; }
-  .filter-btn.owner-btn.active-kevin { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+  .filter-btn.owner-btn.active-kyle { background: #7c3aed; border-color: #7c3aed; color: #fff; }
   .filter-btn.owner-btn.active-danny { background: #059669; border-color: #059669; color: #fff; }
   .filter-btn.owner-btn.active-christie { background: #d97706; border-color: #d97706; color: #fff; }
   .filter-btn.owner-btn.active-camilla { background: #6b7280; border-color: #6b7280; color: #fff; }
@@ -62,7 +62,7 @@
   .footer-right { display: flex; align-items: center; gap: 12px; }
   .owner-pill { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
   .owner-cameron { background: #eff8ff; color: #0369a1; border: 1px solid #bae6fd; }
-  .owner-kevin { background: #faf5ff; color: #7c3aed; border: 1px solid #e9d5ff; }
+  .owner-kyle { background: #faf5ff; color: #7c3aed; border: 1px solid #e9d5ff; }
   .owner-danny { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
   .owner-christie { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
   .owner-camilla { background: #f9fafb; color: #6b7280; border: 1px solid #d1d5db; }
@@ -118,7 +118,7 @@
     <button class="filter-btn owner-btn active" onclick="filterCards('owner','all',this)">Everyone</button>
     <button class="filter-btn owner-btn" onclick="filterCards('owner','cameron',this)">Cameron</button>
     <button class="filter-btn owner-btn" onclick="filterCards('owner','danny',this)">Danny</button>
-    <button class="filter-btn owner-btn" onclick="filterCards('owner','kevin',this)">Kevin</button>
+    <button class="filter-btn owner-btn" onclick="filterCards('owner','kyle',this)">Kyle</button>
     <button class="filter-btn owner-btn" onclick="filterCards('owner','christie',this)">Christie</button>
   </div>
 </div>
@@ -344,7 +344,7 @@
   </div>
 
   <!-- SpaceX -->
-  <div class="card cold-outreach" data-pipeline="cold" data-type="funding" data-owner="kevin">
+  <div class="card cold-outreach" data-pipeline="cold" data-type="funding" data-owner="kyle">
     <div class="card-top">
       <div>
         <div class="company-name">SpaceX &#x1F1FA;&#x1F1F8;</div>
@@ -361,7 +361,7 @@
     <div class="card-footer">
       <div class="card-date">12 June 2026</div>
       <div class="footer-right">
-        <span class="owner-pill owner-kevin">Kevin</span>
+        <span class="owner-pill owner-kyle">Kyle</span>
         <a href="https://techcrunch.com/2026/05/29/spacex-awarded-6-45b-in-space-force-contracts-ahead-of-ipo/" target="_blank" class="source-link">TechCrunch &#x2197;</a>
       </div>
     </div>
@@ -416,7 +416,7 @@
   </div>
 
   <!-- Thales Alenia Space -->
-  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kevin">
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
     <div class="card-top">
       <div>
         <div class="company-name">Thales Alenia Space &#x1F1EB;&#x1F1F7;</div>
@@ -433,7 +433,7 @@
     <div class="card-footer">
       <div class="card-date">April 2026 - ongoing</div>
       <div class="footer-right">
-        <span class="owner-pill owner-kevin">Kevin</span>
+        <span class="owner-pill owner-kyle">Kyle</span>
         <a href="https://www.thalesaleniaspace.com/en/press-releases/thales-alenia-space-signed-contract-european-space-agency-develop-low-earth-orbit" target="_blank" class="source-link">Thales Alenia Space &#x2197;</a>
       </div>
     </div>
@@ -488,7 +488,7 @@
   </div>
 
   <!-- OroraTech -->
-  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kevin">
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
     <div class="card-top">
       <div>
         <div class="company-name">OroraTech &#x1F1E9;&#x1F1EA;</div>
@@ -505,7 +505,7 @@
     <div class="card-footer">
       <div class="card-date">23 June 2026</div>
       <div class="footer-right">
-        <span class="owner-pill owner-kevin">Kevin</span>
+        <span class="owner-pill owner-kyle">Kyle</span>
         <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
       </div>
     </div>
@@ -608,7 +608,7 @@
     } else if (filterType === 'owner') {
       activeOwner = value;
       document.querySelectorAll('#ownerFilters .filter-btn').forEach(b => {
-        b.classList.remove('active','active-cameron','active-danny','active-kevin','active-christie','active-camilla');
+        b.classList.remove('active','active-cameron','active-danny','active-kyle','active-christie','active-camilla');
       });
     }
     el.classList.add('active');
