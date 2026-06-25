@@ -30,13 +30,11 @@
   .filter-btn.owner-btn.active-kyle { background: #7c3aed; border-color: #7c3aed; color: #fff; }
   .filter-btn.owner-btn.active-danny { background: #059669; border-color: #059669; color: #fff; }
   .filter-btn.owner-btn.active-christie { background: #d97706; border-color: #d97706; color: #fff; }
-  /* Section headers within day blocks */
   .section-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 32px 6px; }
   .section-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; display: flex; align-items: center; gap: 7px; }
   .section-label-pipeline { color: #d40075; }
   .section-label-prospect { color: #059669; }
   .section-count { font-size: 11px; color: #9c8b78; background: #f0f0ea; padding: 2px 8px; border-radius: 10px; }
-  /* Cards */
   .card { background: #fdfaf5; border: 1px solid #e8e0d0; border-radius: 10px; padding: 20px; position: relative; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
   .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
   .card.hot-pipeline { border-left: 4px solid #d40075; }
@@ -86,7 +84,6 @@
     .header, .stats-bar, .filter-section, .section-header { padding-left: 16px; padding-right: 16px; }
     .date-note { margin-left: 0; }
   }
-  /* Day section structure */
   #cardContainer { display: block; }
   .day-divider-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px 4px; }
   .day-divider-date { font-size: 13px; font-weight: 700; color: #7c6f5e; letter-spacing: 0.2px; }
@@ -108,10 +105,10 @@
 </div>
 
 <div class="stats-bar">
-  <div class="stat"><div class="stat-value" id="visibleCount">7</div><div class="stat-label">Total Matches</div></div>
+  <div class="stat"><div class="stat-value" id="visibleCount">6</div><div class="stat-label">Total Matches</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">In Pipeline</div></div>
-  <div class="stat"><div class="stat-value prospect-count">3</div><div class="stat-label">New Prospects</div></div>
-  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Contracts &amp; Funding</div></div>
+  <div class="stat"><div class="stat-value prospect-count">2</div><div class="stat-label">New Prospects</div></div>
+  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Contracts &amp; Awards</div></div>
   <div class="date-note">25 June 2026 &nbsp;|&nbsp; 500 companies monitored</div>
 </div>
 
@@ -131,6 +128,7 @@
     <button class="filter-btn" onclick="filterCards('type','contract',this)">&#9989; Contracts Won</button>
     <button class="filter-btn" onclick="filterCards('type','funding',this)">&#128176; Funding</button>
     <button class="filter-btn" onclick="filterCards('type','launch',this)">&#128640; Launches</button>
+    <button class="filter-btn" onclick="filterCards('type','award',this)">&#127942; Awards &amp; Milestones</button>
     <button class="filter-btn" onclick="filterCards('type','partnership',this)">&#129309; Partnerships</button>
   </div>
   <div class="filter-row-label">Filter by deal owner</div>
@@ -149,7 +147,7 @@
 <div class="day-divider-line"></div>
 <div class="day-divider-bar">
   <span class="day-divider-date">25 June 2026</span>
-  <span class="day-divider-count">4 pipeline &middot; 3 prospects</span>
+  <span class="day-divider-count">4 pipeline &middot; 2 prospects</span>
 </div>
 
 <!-- IN PIPELINE SUB-SECTION -->
@@ -164,238 +162,236 @@
     <div class="alert-badge">&#128293; Hot Pipeline</div>
     <div class="card-top">
       <div>
-        <div class="company-name">Boeing &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-name">Boeing</div>
         <div class="company-meta">USA &nbsp;|&nbsp; Aerospace &amp; Defence Prime</div>
       </div>
       <div class="stage-badge stage-hot">Hot Pipeline</div>
     </div>
-    <div class="tags"><span class="tag contract">$2B Space Force Contract</span><span class="tag contract">MUOS Satellite</span></div>
-    <div class="summary">The US Space Force awarded Boeing a $2 billion contract on 24 June 2026 to build two new MUOS narrowband communications satellites, beating Lockheed Martin. The contract extends the military SATCOM programme providing secure UHF voice and data to US and allied forces globally. Delivery expected early 2030s.</div>
+    <div class="tags">
+      <span class="tag contract">Contract Won</span>
+      <span class="tag contract">$2B MUOS Satellite</span>
+      <span class="tag contract">Space Force</span>
+    </div>
+    <div class="summary">The US Space Force awarded Boeing a $2 billion contract on 24 June to build two new MUOS narrowband communications satellites, beating out Lockheed Martin. MUOS provides secure ultra-high frequency voice and data links to US and allied military forces globally across four geosynchronous satellites. The new vehicles are slated for launch no earlier than 2031-2032 and will extend constellation operations to 2035. Boeing's Space Systems division is now holding two major active Space Force satellite production programmes simultaneously.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A $2B Space Force win puts Boeing's satellite division front and centre for European NATO allies who depend on MUOS connectivity. Space-Comm 2027 is where European defence procurement decision-makers gather - Boeing on the floor reinforces their credentials with exactly that audience.</div>
+      <div class="outreach-text">A $2B Space Force comms win is exactly the kind of programme European NATO allies follow closely - MUOS is the backbone of allied UHF satcom. Boeing on the Space-Comm floor signals credibility to European defence procurement teams who need to see the primes showing up. This is a strong hook for Christie to use: "your MUOS win is getting attention on this side of the Atlantic - we'd love to give you the floor space to match."</div>
     </div>
     <div class="card-footer">
       <div class="card-date">24 June 2026</div>
       <div class="footer-right">
         <span class="owner-pill owner-christie">Christie</span>
-        <a href="https://spacenews.com/boeing-wins-2-billion-space-force-contract-for-communications-satellites/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+        <a href="https://spacenews.com/boeing-wins-2-billion-space-force-contract-for-communications-satellites/" class="source-link" target="_blank">SpaceNews &rarr;</a>
       </div>
     </div>
   </div>
 
-  <!-- CARD 2: BAE Systems -->
-  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="christie">
+  <!-- CARD 2: York Space Systems -->
+  <div class="card engagement" data-pipeline="engagement" data-type="award" data-owner="kyle">
     <div class="card-top">
       <div>
-        <div class="company-name">BAE Systems &#x1F1EC;&#x1F1E7;</div>
-        <div class="company-meta">UK &nbsp;|&nbsp; Defence &amp; Space Prime</div>
+        <div class="company-name">York Space Systems</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Smallsat Manufacturer &amp; Defence</div>
       </div>
-      <div class="stage-badge stage-cold">Cold Outreach</div>
+      <div class="stage-badge stage-engagement">Engagement</div>
     </div>
-    <div class="tags"><span class="tag contract">Satellite Bus Contract</span><span class="tag award">Vantor / Vantage Programme</span></div>
-    <div class="summary">Vantor selected BAE Systems on 24 June 2026 to build the Vantage satellite bus - a 20cm-class imaging platform for national defence and intelligence programmes. BAE Systems will supply spacecraft from their Evolve line, with the first two Vantage satellites planned for operation by 2029.</div>
+    <div class="tags">
+      <span class="tag award">Mission Milestone</span>
+      <span class="tag award">SDA Dragoon</span>
+      <span class="tag contract">Tactical Comms LEO</span>
+    </div>
+    <div class="summary">York Space Systems announced on 24 June that it has completed all initial Dragoon mission objectives, demonstrating two-way UHF tactical communications from low Earth orbit - the first time this has been achieved at speed and scale on a commercial platform. The satellite was built and launched in just seven months, satisfying SDA exit criteria through five successful demonstrations over three months. The Dragoon platform is the first of a planned 12-satellite constellation supporting missile warning and warfighter connectivity for the Space Development Agency.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">BAE Systems winning the Vantage bus contract confirms their push into the commercial and defence small satellite market. Space-Comm 2027 is where the UK's sovereign space supply chain gathers - BAE's presence puts them in direct conversation with government and agency buyers funding the next programmes.</div>
+      <div class="outreach-text">York just proved that commercial smallsats can deliver operationally relevant military comms from LEO in under a year. That story resonates with European defence primes and national space agencies at Space-Comm who are exploring similar sovereign capability. Kyle should move this deal - York achieving a genuine milestone is the right moment to close before the next show cycle fills up.</div>
     </div>
     <div class="card-footer">
       <div class="card-date">24 June 2026</div>
       <div class="footer-right">
-        <span class="owner-pill owner-christie">Christie</span>
-        <a href="https://spacenews.com/vantor-selects-bae-systems-to-build-next-generation-imaging-satellites/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+        <span class="owner-pill owner-kyle">Kyle</span>
+        <a href="https://www.businesswire.com/news/home/20260624893066/en/York-Space-Systems-Completes-Successful-Dragoon-Mission-Test-Objectives" class="source-link" target="_blank">Business Wire &rarr;</a>
       </div>
     </div>
   </div>
 
-  <!-- CARD 3: OHB SE -->
-  <div class="card cold-outreach" data-pipeline="cold" data-type="funding" data-owner="christie">
+  <!-- CARD 3: SpaceX -->
+  <div class="card engagement" data-pipeline="engagement" data-type="launch" data-owner="kyle">
     <div class="card-top">
       <div>
-        <div class="company-name">OHB SE &#x1F1E9;&#x1F1EA;</div>
-        <div class="company-meta">Germany &nbsp;|&nbsp; Satellite Manufacturer</div>
+        <div class="company-name">SpaceX</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Launch &amp; Satellite Constellations</div>
       </div>
-      <div class="stage-badge stage-cold">Cold Outreach</div>
+      <div class="stage-badge stage-engagement">Engagement</div>
     </div>
-    <div class="tags"><span class="tag funding">&#8364;900M Private Placement</span><span class="tag ma">Expansion &amp; M&amp;A</span></div>
-    <div class="summary">OHB SE completed an upsized &#8364;900 million private placement on 25 June 2026 - larger than initially planned. Capital is earmarked for business expansion, M&amp;A activity, and launch vehicle investment. OHB is one of Europe's largest independent satellite manufacturers.</div>
+    <div class="tags">
+      <span class="tag launch">Starlink Launch</span>
+      <span class="tag launch">Vandenberg</span>
+    </div>
+    <div class="summary">SpaceX launched a Falcon 9 carrying two dozen Starlink satellites on the Starlink 17-45 mission from Vandenberg Space Force Base on the evening of 24 June. The launch continues SpaceX's aggressive cadence of constellation expansion in 2026, with the Starlink network now exceeding 7,000 active satellites globally. SpaceX also demonstrated its Starfall reentry capsule on 23 June, marking a new capability for returning cargo from orbit at speed - a first step toward rapid orbital logistics.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">&#8364;900M in fresh capital means OHB is in acquisition mode and scaling fast. Companies raising at this scale are making visibility decisions right now - Space-Comm 2027 is where European primes, agencies and supply chain meet. This is the moment to get them in front of the people they'll be acquiring from or partnering with.</div>
+      <div class="outreach-text">SpaceX's launch cadence is the benchmark story that shapes every conversation in the industry right now - European operators, defence customers and satellite builders all measure themselves against it. Having SpaceX at Space-Comm 2027 is the statement that this show is where the industry makes decisions. Kyle - what does it take to get them confirmed?</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">24 June 2026</div>
+      <div class="footer-right">
+        <span class="owner-pill owner-kyle">Kyle</span>
+        <a href="https://spaceflightnow.com/" class="source-link" target="_blank">Spaceflight Now &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 4: Sierra Space -->
+  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Sierra Space</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Space Vehicles &amp; In-Orbit Services</div>
+      </div>
+      <div class="stage-badge stage-engagement">Engagement</div>
+    </div>
+    <div class="tags">
+      <span class="tag contract">AFRL Contract</span>
+      <span class="tag award">Ghost Spacecraft</span>
+      <span class="tag contract">REGAL Programme</span>
+    </div>
+    <div class="summary">The US Air Force Research Laboratory is actively studying Sierra Space's "Ghost" spacecraft as a solution for rapidly delivering cargo from orbital warehouses to any point on Earth in under 90 minutes, per a story published by SpaceNews on 25 June. Sierra Space won an AFRL contract under the Rocket Experimentation for Global Agile Logistics (REGAL) programme to advance Ghost toward operational use. The spacecraft is designed to remain in orbit for up to five years and deploy payloads on demand - from rescue kits for downed pilots to disaster relief supplies.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Orbital logistics is one of the fastest-growing categories in European defence procurement conversations - NATO allies are watching REGAL very closely. Sierra Space is building something that shifts what "space capability" means for ground commanders. Space-Comm 2027 is where European defence customers come to find exactly this kind of vendor. Kyle - worth a call today while the news is fresh.</div>
     </div>
     <div class="card-footer">
       <div class="card-date">25 June 2026</div>
       <div class="footer-right">
-        <span class="owner-pill owner-christie">Christie</span>
-        <a href="https://www.aviationweek.com/space" target="_blank" class="source-link">Aviation Week &#x2197;</a>
+        <span class="owner-pill owner-kyle">Kyle</span>
+        <a href="https://spacenews.com/the-air-force-is-exploring-the-potential-of-space-vehicles-to-rapidly-transport-critical-supplies-from-orbital-warehouses-back-to-earth/" class="source-link" target="_blank">SpaceNews &rarr;</a>
       </div>
     </div>
   </div>
 
-  <!-- CARD 4: AWS -->
-  <div class="card engagement" data-pipeline="engagement" data-type="partnership" data-owner="cameron">
-    <div class="card-top">
-      <div>
-        <div class="company-name">AWS &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Cloud &amp; Space Technology</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag partnership">SpaceConnect Association</span><span class="tag partnership">LEO NGSO Alliance</span></div>
-    <div class="summary">Amazon Web Services joined Iridium, Telesat and Globalstar on 24 June 2026 to launch the SpaceConnect Association - a new industry body advocating for LEO NGSO spectrum access, interoperability standards, and regulatory frameworks at the ITU and national regulators.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">AWS co-founding an industry association with major satellite operators signals a deepening space infrastructure play beyond cloud services. Space-Comm 2027 is the European forum where spectrum, standards and satellite connectivity are debated by the regulators and buyers the SpaceConnect Association needs to influence. A strong warm follow-up hook for Cameron.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">24 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-cameron">Cameron</span>
-        <a href="https://www.satellitetoday.com" target="_blank" class="source-link">Via Satellite &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-</div><!-- end pipeline day-grid -->
+</div>
 
 <!-- PROSPECT RADAR SUB-SECTION -->
 <div class="prospect-divider-line"></div>
 <div class="section-header">
   <span class="section-label section-label-prospect">&#128269; Prospect Radar &mdash; Not yet in pipeline</span>
-  <span class="section-count">3 companies &middot; funding first</span>
+  <span class="section-count">2 companies &middot; contracts first</span>
 </div>
 <div class="day-grid">
 
-  <!-- PROSPECT 1: MDA Space (funding/contract - comes first) -->
+  <!-- PROSPECT 1: MDA Space -->
   <div class="card prospect" data-pipeline="prospect" data-type="contract" data-owner="unassigned">
     <div class="prospect-badge">&#128269; New Prospect</div>
     <div class="card-top">
       <div>
-        <div class="company-name">MDA Space &#x1F1E8;&#x1F1E6;</div>
-        <div class="company-meta">Canada &nbsp;|&nbsp; SAR Satellite Manufacturer</div>
+        <div class="company-name">MDA Space</div>
+        <div class="company-meta">Canada &nbsp;|&nbsp; Satellite Manufacturer &amp; Space Services</div>
       </div>
       <div class="stage-badge stage-prospect">Not In Pipeline</div>
     </div>
-    <div class="tags"><span class="tag contract">C$688M CSA Contract</span><span class="tag contract">Radarsat Replenishment</span></div>
-    <div class="summary">The Canadian Space Agency awarded MDA Space a C$688 million ($483M USD) contract on 24 June 2026 to build a replenishment satellite for the Radarsat Constellation Mission (RCM). The new satellite is based on MDA Chorus - their 4th-generation SAR technology - and will be assembled in Montreal. Contract adds to MDA's $1B+ backlog in Q2 2026.</div>
+    <div class="tags">
+      <span class="tag contract">$688M Contract</span>
+      <span class="tag contract">Canadian Space Agency</span>
+      <span class="tag contract">Replenishment Satellite</span>
+    </div>
+    <div class="summary">The Canadian Space Agency awarded MDA Space a $688 million contract on 24 June for a replenishment satellite, one of the largest single satellite procurement contracts in Canadian history. MDA Space is the prime contractor for Canada's RADARSAT Constellation Mission and is now building the next-generation Earth observation satellite that will sustain Canadian sovereign imagery capabilities. With a contract of this scale, MDA is in active growth mode and expanding its international commercial footprint alongside government work.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Half a billion dollar SAR contract keeps MDA at the centre of sovereign Earth observation for the next decade. European equivalents - ESA, Copernicus, UK MoD - are all evaluating SAR replenishment programmes and will be in the room at Space-Comm 2027. MDA speaking or exhibiting puts them directly in front of the procurement conversations happening across the Atlantic.</div>
+      <div class="outreach-text">A $688M national mandate and growing international ambitions - MDA is exactly the kind of company that exhibits at Space-Comm to signal its presence to European procurement and partnership audiences. ESA, UK Space Agency and Copernicus programme stakeholders are all in the room. Check HubSpot: if MDA isn't already in the pipeline, this contract is the hook to open that conversation today.</div>
     </div>
     <div class="card-footer">
       <div class="card-date">24 June 2026</div>
       <div class="footer-right">
         <span class="owner-pill owner-unassigned">Unassigned</span>
-        <a href="https://spacenews.com/mda-space-wins-contract-for-radarsat-replenishment-satellite/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+        <a href="https://www.satellitetoday.com/" class="source-link" target="_blank">Via Satellite &rarr;</a>
       </div>
     </div>
   </div>
 
-  <!-- PROSPECT 2: Vantor (formerly Maxar) -->
-  <div class="card prospect" data-pipeline="prospect" data-type="contract" data-owner="unassigned">
+  <!-- PROSPECT 2: Spire Global -->
+  <div class="card prospect" data-pipeline="prospect" data-type="launch" data-owner="unassigned">
     <div class="prospect-badge">&#128269; New Prospect</div>
     <div class="card-top">
       <div>
-        <div class="company-name">Vantor &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Earth Observation (formerly Maxar)</div>
+        <div class="company-name">Spire Global</div>
+        <div class="company-meta">USA / Luxembourg &nbsp;|&nbsp; Earth Observation &amp; Data Analytics</div>
       </div>
       <div class="stage-badge stage-prospect">Not In Pipeline</div>
     </div>
-    <div class="tags"><span class="tag contract">Vantage Constellation Build</span><span class="tag partnership">Rheinmetall MOU</span></div>
-    <div class="summary">Vantor (rebranded from Maxar Intelligence in October 2025) is building out two major new constellations: Pulse satellites (launching 2027) and Vantage 20cm imaging satellites (deploying 2029 via the BAE Systems bus contract announced 24 June). The company also signed an MOU with Rheinmetall on 18 June expanding into the European defence market. Vantor operates 10 EO satellites today and is the world's leading commercial imagery operator.</div>
+    <div class="tags">
+      <span class="tag launch">Transporter-17 Rideshare</span>
+      <span class="tag launch">10 Satellites Delivered</span>
+    </div>
+    <div class="summary">Spire Global delivered 10 satellites to Vandenberg Space Force Base on 24 June ahead of the SpaceX Transporter-17 rideshare mission, continuing its constellation expansion in weather, maritime and aviation tracking. Spire now operates one of the largest commercial satellite constellations for Earth data, with customers across government, shipping, aviation and financial sectors globally. The company has a significant European customer base and holds multiple ESA and EU Copernicus data agreements.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Vantor is building the next generation of commercial imagery infrastructure and actively pushing into European defence via Rheinmetall. UK MoD, NATO, and European intelligence agencies buying commercial EO imagery will be at Space-Comm 2027. This is exactly where Vantor needs to be - and with Pulse launching in 2027, the timing is perfect. Check if they're already in the pipeline under Maxar.</div>
+      <div class="outreach-text">Spire has European DNA - it's incorporated in Luxembourg, holds EU data contracts, and its customer base is heavily European government and maritime. Space-Comm 2027 is the natural place for Spire to put its European brand in front of the operators and agencies that rely on their data. Check if this is already in HubSpot under a variant name, then reach out on the back of the Transporter-17 story.</div>
     </div>
     <div class="card-footer">
       <div class="card-date">24 June 2026</div>
       <div class="footer-right">
         <span class="owner-pill owner-unassigned">Unassigned</span>
-        <a href="https://www.satellitetoday.com/earth-observation/2026/06/24/bae-systems-to-build-buses-for-vantors-vantage-imaging-satellites/" target="_blank" class="source-link">Via Satellite &#x2197;</a>
+        <a href="https://spaceflightnow.com/" class="source-link" target="_blank">Spaceflight Now &rarr;</a>
       </div>
     </div>
   </div>
 
-  <!-- PROSPECT 3: Vast -->
-  <div class="card prospect" data-pipeline="prospect" data-type="partnership" data-owner="unassigned">
-    <div class="prospect-badge">&#128269; New Prospect</div>
-    <div class="card-top">
-      <div>
-        <div class="company-name">Vast &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Commercial Space Station</div>
-      </div>
-      <div class="stage-badge stage-prospect">Not In Pipeline</div>
-    </div>
-    <div class="tags"><span class="tag partnership">Partner Network Expansion</span><span class="tag launch">Haven-1 2027</span></div>
-    <div class="summary">Vast announced on 24 June 2026 the addition of several new companies and organisations to its microgravity research and manufacturing partner network. The company is building Haven-1 - the world's first commercial space station - targeting a 2027 launch. The partner network includes academic institutions, pharmaceutical firms and technology companies seeking access to microgravity environments.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Vast's partner network expansion is pulling in exactly the kind of companies - biotech, materials science, tech manufacturers - that represent new entrants to the space economy. These are the Space-Comm 2027 exhibitors of 2029. Vast exhibiting and speaking brings that whole ecosystem into the room, and their Haven-1 launch timeline overlapping with Space-Comm makes the conversation timely.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">24 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-unassigned">Unassigned</span>
-        <a href="https://space.com" target="_blank" class="source-link">Space.com &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-</div><!-- end prospect day-grid -->
+</div>
 <!-- day-section-end: 2026-06-25 -->
 
 </div><!-- end cardContainer -->
 
-<div class="no-results" id="noResults">No matches for the current filter combination.</div>
+<div class="no-results" id="noResults">No matches found for current filters.</div>
 
 <div class="footer">
-  <strong>Space-Comm Pipeline News Intel</strong> &nbsp;|&nbsp; 4 pipeline matches &middot; 3 new prospects &nbsp;|&nbsp; 500 pipeline companies monitored &nbsp;|&nbsp; Generated 25 June 2026
+  <strong>Space-Comm Pipeline Intelligence</strong> &nbsp;&middot;&nbsp; 500 companies monitored &nbsp;&middot;&nbsp; 25 June 2026 &nbsp;&middot;&nbsp; Built by Claude
 </div>
 
 <script>
-  let activeStage = 'all';
-  let activeType = 'all';
-  let activeOwner = 'all';
+let activeStage = 'all';
+let activeType = 'all';
+let activeOwner = 'all';
 
-  function filterCards(filterType, value, el) {
-    if (filterType === 'stage') {
-      activeStage = value;
-      document.querySelectorAll('#stageFilters .filter-btn').forEach(b => {
-        b.classList.remove('active');
-      });
-    } else if (filterType === 'type') {
-      activeType = value;
-      document.querySelectorAll('#typeFilters .filter-btn').forEach(b => b.classList.remove('active'));
-    } else if (filterType === 'owner') {
-      activeOwner = value;
-      document.querySelectorAll('#ownerFilters .filter-btn').forEach(b => {
-        b.classList.remove('active','active-cameron','active-kyle','active-danny','active-christie');
-      });
-    }
-    if (filterType === 'owner' && value !== 'all') {
-      el.classList.add('active-' + value);
-    } else {
-      el.classList.add('active');
-    }
-
-    const cards = document.querySelectorAll('.card');
-    let visible = 0;
-    cards.forEach(card => {
-      const stageMatch = activeStage === 'all' || card.dataset.pipeline === activeStage;
-      const typeMatch = activeType === 'all' || card.dataset.type === activeType;
-      // Owner filter: prospect cards (unassigned) always show unless filtering by a specific owner
-      const ownerMatch = activeOwner === 'all' || card.dataset.owner === activeOwner;
-      if (stageMatch && typeMatch && ownerMatch) {
-        card.classList.remove('hidden');
-        visible++;
-      } else {
-        card.classList.add('hidden');
-      }
+function filterCards(filterType, value, el) {
+  if (filterType === 'stage') {
+    activeStage = value;
+    document.querySelectorAll('#stageFilters .filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.className = b.className.replace(/ active-\w+/g, '');
     });
-    document.getElementById('visibleCount').textContent = visible;
-    const noResults = document.getElementById('noResults');
-    noResults.style.display = visible === 0 ? 'block' : 'none';
+    el.classList.add('active');
+  } else if (filterType === 'type') {
+    activeType = value;
+    document.querySelectorAll('#typeFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+  } else if (filterType === 'owner') {
+    activeOwner = value;
+    document.querySelectorAll('#ownerFilters .filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.className = b.className.replace(/ active-\w+/g, '');
+    });
+    if (value !== 'all') el.classList.add('active-' + value);
+    else el.classList.add('active');
   }
+
+  let visible = 0;
+  document.querySelectorAll('.card').forEach(card => {
+    const p = card.dataset.pipeline;
+    const t = card.dataset.type;
+    const o = card.dataset.owner;
+    const stageOk = activeStage === 'all' || p === activeStage;
+    const typeOk = activeType === 'all' || t === activeType;
+    const ownerOk = activeOwner === 'all' || o === activeOwner;
+    const show = stageOk && typeOk && ownerOk;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  document.getElementById('visibleCount').textContent = visible;
+  const nr = document.getElementById('noResults');
+  if (nr) nr.style.display = visible === 0 ? 'block' : 'none';
+}
 </script>
+
 </body>
 </html>
