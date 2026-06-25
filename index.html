@@ -6,21 +6,21 @@
 <title>Space-Comm Pipeline News Intel - Daily Briefing</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a2332; min-height: 100vh; }
-  .header { background: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #d40075; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f0e8; color: #1a2332; min-height: 100vh; }
+  .header { background: #fdfaf5; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #d40075; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .header-left { display: flex; align-items: center; gap: 16px; }
   .logo-img { height: 44px; width: auto; }
   .badge { background: #d40075; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
-  .header-right { font-size: 13px; color: #6b7280; }
-  .stats-bar { background: #fff; padding: 14px 32px; display: flex; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid #e5e7eb; align-items: center; }
+  .header-right { font-size: 13px; color: #7c6f5e; }
+  .stats-bar { background: #fdfaf5; padding: 14px 32px; display: flex; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid #e8e0d0; align-items: center; }
   .stat { display: flex; flex-direction: column; gap: 2px; }
   .stat-value { font-size: 22px; font-weight: 800; color: #d40075; }
-  .stat-label { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
-  .date-note { margin-left: auto; font-size: 12px; color: #6b7280; display: flex; align-items: center; padding: 7px 12px; background: #f9fafb; border-radius: 6px; border: 1px solid #e5e7eb; }
+  .stat-label { font-size: 11px; color: #9c8b78; text-transform: uppercase; letter-spacing: 0.5px; }
+  .date-note { margin-left: auto; font-size: 12px; color: #7c6f5e; display: flex; align-items: center; padding: 7px 12px; background: #f5efe3; border-radius: 6px; border: 1px solid #e8e0d0; }
   .filter-section { padding: 16px 32px 0; }
-  .filter-row-label { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .filter-row-label { font-size: 11px; color: #9c8b78; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-  .filter-btn { background: #fff; border: 1px solid #d1d5db; color: #374151; padding: 7px 16px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.15s; }
+  .filter-btn { background: #fdfaf5; border: 1px solid #d1d5db; color: #4a3f30; padding: 7px 16px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.15s; }
   .filter-btn:hover { border-color: #d40075; color: #d40075; }
   .filter-btn.active { background: #d40075; border-color: #d40075; color: #fff; }
   .filter-btn.owner-btn.active-cameron { background: #0093d3; border-color: #0093d3; color: #fff; }
@@ -28,7 +28,7 @@
   .filter-btn.owner-btn.active-danny { background: #059669; border-color: #059669; color: #fff; }
   .filter-btn.owner-btn.active-christie { background: #d97706; border-color: #d97706; color: #fff; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px; padding: 16px 32px 32px; }
-  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; position: relative; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .card { background: #fdfaf5; border: 1px solid #e8e0d0; border-radius: 10px; padding: 20px; position: relative; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
   .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
   .card.hot-pipeline { border-left: 4px solid #d40075; }
   .card.autumn-close { border-left: 4px solid #f59e0b; }
@@ -37,12 +37,12 @@
   .card.hidden { display: none; }
   .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
   .company-name { font-size: 17px; font-weight: 800; color: #111827; }
-  .company-meta { font-size: 12px; color: #6b7280; margin-top: 3px; }
+  .company-meta { font-size: 12px; color: #7c6f5e; margin-top: 3px; }
   .stage-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 12px; white-space: nowrap; text-align: right; flex-shrink: 0; }
   .stage-hot { background: #fdf2f8; border: 1px solid #d40075; color: #d40075; }
   .stage-autumn { background: #fffbeb; border: 1px solid #f59e0b; color: #b45309; }
   .stage-engagement { background: #eff8ff; border: 1px solid #0093d3; color: #0369a1; }
-  .stage-cold { background: #f9fafb; border: 1px solid #d1d5db; color: #6b7280; }
+  .stage-cold { background: #f5efe3; border: 1px solid #d1d5db; color: #7c6f5e; }
   .alert-badge { display: inline-block; background: #fdf2f8; border: 1px solid #d40075; color: #d40075; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
   .tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 12px; }
@@ -52,12 +52,12 @@
   .tag.launch { background: #eff8ff; color: #0369a1; border: 1px solid #bae6fd; }
   .tag.award { background: #fefce8; color: #854d0e; border: 1px solid #fef08a; }
   .tag.partnership { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
-  .summary { font-size: 13px; color: #374151; line-height: 1.7; margin-bottom: 14px; }
+  .summary { font-size: 13px; color: #4a3f30; line-height: 1.7; margin-bottom: 14px; }
   .outreach { background: #fdf2f8; border: 1px solid #fbb6d4; border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; }
   .outreach-label { font-size: 10px; font-weight: 700; color: #d40075; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
   .outreach-text { font-size: 13px; color: #4b2035; line-height: 1.55; }
-  .card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f3f4f6; padding-top: 11px; }
-  .card-date { font-size: 12px; color: #9ca3af; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #ede5d8; padding-top: 11px; }
+  .card-date { font-size: 12px; color: #9c8b78; }
   .footer-right { display: flex; align-items: center; gap: 12px; }
   .owner-pill { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
   .owner-cameron { background: #eff8ff; color: #0369a1; border: 1px solid #bae6fd; }
@@ -66,9 +66,9 @@
   .owner-christie { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
   .source-link { font-size: 12px; color: #0093d3; text-decoration: none; font-weight: 600; }
   .source-link:hover { color: #d40075; }
-  .no-results { display: none; padding: 48px 32px; text-align: center; color: #9ca3af; font-size: 14px; }
-  .footer { background: #fff; border-top: 1px solid #e5e7eb; padding: 18px 32px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: 8px; }
-  .footer strong { color: #6b7280; }
+  .no-results { display: none; padding: 48px 32px; text-align: center; color: #9c8b78; font-size: 14px; }
+  .footer { background: #fdfaf5; border-top: 1px solid #e5e7eb; padding: 18px 32px; text-align: center; font-size: 12px; color: #9c8b78; margin-top: 8px; }
+  .footer strong { color: #7c6f5e; }
   @media (max-width: 600px) {
     .header, .stats-bar, .filter-section, .grid { padding-left: 16px; padding-right: 16px; }
     .grid { grid-template-columns: 1fr; }
