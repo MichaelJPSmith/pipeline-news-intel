@@ -27,7 +27,6 @@
   .filter-btn.owner-btn.active-kyle { background: #7c3aed; border-color: #7c3aed; color: #fff; }
   .filter-btn.owner-btn.active-danny { background: #059669; border-color: #059669; color: #fff; }
   .filter-btn.owner-btn.active-christie { background: #d97706; border-color: #d97706; color: #fff; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px; padding: 16px 32px 32px; }
   .card { background: #fdfaf5; border: 1px solid #e8e0d0; border-radius: 10px; padding: 20px; position: relative; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
   .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
   .card.hot-pipeline { border-left: 4px solid #d40075; }
@@ -70,11 +69,9 @@
   .footer { background: #fdfaf5; border-top: 1px solid #e5e7eb; padding: 18px 32px; text-align: center; font-size: 12px; color: #9c8b78; margin-top: 8px; }
   .footer strong { color: #7c6f5e; }
   @media (max-width: 600px) {
-    .header, .stats-bar, .filter-section, .grid { padding-left: 16px; padding-right: 16px; }
-    .grid { grid-template-columns: 1fr; }
+    .header, .stats-bar, .filter-section { padding-left: 16px; padding-right: 16px; }
     .date-note { margin-left: 0; }
   }
-
   #cardContainer { display: block; }
   .day-divider-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px 4px; }
   .day-divider-date { font-size: 13px; font-weight: 700; color: #7c6f5e; letter-spacing: 0.2px; }
@@ -95,10 +92,10 @@
 </div>
 
 <div class="stats-bar">
-  <div class="stat"><div class="stat-value" id="visibleCount">18</div><div class="stat-label">Pipeline Matches</div></div>
-  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Hot Pipeline</div></div>
-  <div class="stat"><div class="stat-value">1</div><div class="stat-label">Autumn Close</div></div>
-  <div class="stat"><div class="stat-value">12</div><div class="stat-label">Contracts Won</div></div>
+  <div class="stat"><div class="stat-value" id="visibleCount">4</div><div class="stat-label">Pipeline Matches</div></div>
+  <div class="stat"><div class="stat-value">1</div><div class="stat-label">Hot Pipeline</div></div>
+  <div class="stat"><div class="stat-value">1</div><div class="stat-label">Engagement</div></div>
+  <div class="stat"><div class="stat-value">3</div><div class="stat-label">Contracts &amp; Funding</div></div>
   <div class="date-note">25 June 2026 &nbsp;|&nbsp; 500 companies monitored</div>
 </div>
 
@@ -121,7 +118,7 @@
   </div>
   <div class="filter-row-label">Filter by deal owner</div>
   <div class="filters" id="ownerFilters">
-    <button class="filter-btn owner-btn active" onclick="filterCards('owner','all',this)">Everyone</button>
+    <button class="filter-btn owner-btn active" onclick="filterCards('owner','all',this)">All owners</button>
     <button class="filter-btn owner-btn" onclick="filterCards('owner','cameron',this)">Cameron</button>
     <button class="filter-btn owner-btn" onclick="filterCards('owner','danny',this)">Danny</button>
     <button class="filter-btn owner-btn" onclick="filterCards('owner','kyle',this)">Kyle</button>
@@ -133,444 +130,105 @@
 
 <!-- day-section-start: 2026-06-25 -->
 <div class="day-divider-line"></div>
-<div class="day-divider-bar"><span class="day-divider-date">25 June 2026</span><span class="day-divider-count">18 matches</span></div>
+<div class="day-divider-bar">
+  <span class="day-divider-date">25 June 2026</span>
+  <span class="day-divider-count">4 matches</span>
+</div>
 <div class="day-grid" id="cardGrid">
 
-  <!-- CARD 1: ICEYE -->
-  <div class="card hot-pipeline" data-pipeline="hot" data-type="funding" data-owner="danny">
-    <div class="alert-badge">&#128293; Discovery Call Booked</div>
+  <!-- CARD 1: Boeing -->
+  <div class="card hot-pipeline" data-pipeline="hot" data-type="contract" data-owner="christie">
+    <div class="alert-badge">&#128293; Hot Pipeline</div>
     <div class="card-top">
       <div>
-        <div class="company-name">ICEYE &#x1F1EB;&#x1F1EE;</div>
-        <div class="company-meta">Finland &nbsp;|&nbsp; SAR Earth Observation</div>
+        <div class="company-name">Boeing &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Aerospace &amp; Defence Prime</div>
       </div>
-      <div class="stage-badge stage-hot">Discovery Call Booked</div>
+      <div class="stage-badge stage-hot">Hot Pipeline</div>
     </div>
-    <div class="tags"><span class="tag funding">&#8364;1B+ Funding Round</span><span class="tag contract">NASA CSDA Contract</span></div>
-    <div class="summary">ICEYE announced a landmark &#8364;1 billion+ funding round on 9 June 2026, led by General Atlantic with participation from Nokia, Qatar Investment Authority, TCV, Solidium and Finnish institutional investors. The round values ICEYE at over &#8364;10 billion - among the largest capital raises in European space history. On 18 June, NASA separately awarded ICEYE US a contract on the Commercial Satellite Data Acquisition (CSDA) On-Ramp 2 programme, worth up to $476 million across all awardees through 2028.</div>
+    <div class="tags"><span class="tag contract">$2B Space Force Contract</span><span class="tag contract">MUOS Satellite</span></div>
+    <div class="summary">The US Space Force awarded Boeing a $2 billion contract on 24 June 2026 to build two new MUOS (Mobile User Objective System) narrowband communications satellites, beating out Lockheed Martin. The contract extends the critical military satellite communications programme that provides secure UHF voice and data to US and allied forces globally. Delivery is expected in the early 2030s.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A billion-euro raise and a NASA contract in the same month - ICEYE is having an extraordinary June. We have a discovery call in the diary. This is exactly the right moment to firm that up: Space-Comm Expo Europe 2027 is where European defence, civil and commercial EO buyers will be making decisions about SAR data providers - and you need to be the name they know.</div>
+      <div class="outreach-text">A $2B Space Force win for Boeing's satellite division is headline news across the defence space community. European NATO allies depend on MUOS connectivity - the programme is directly relevant to UK and European defence buyers who will be at Space-Comm 2027. Boeing's presence on the floor reinforces their credentials with exactly the audience making procurement decisions next year.</div>
     </div>
     <div class="card-footer">
-      <div class="card-date">9 June 2026</div>
+      <div class="card-date">24 June 2026</div>
       <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://spacenews.com/iceye-raises-1-billion-euros-to-expand-sar-satellite-systems/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+        <span class="owner-pill owner-christie">Christie</span>
+        <a href="https://spacenews.com/boeing-wins-2-billion-space-force-contract-for-communications-satellites/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
       </div>
     </div>
   </div>
 
-  <!-- CARD 2: Maxar Technologies -->
-  <div class="card hot-pipeline" data-pipeline="hot" data-type="contract" data-owner="danny">
-    <div class="alert-badge">&#128293; Discovery Call Booked</div>
-    <div class="card-top">
-      <div>
-        <div class="company-name">Maxar Technologies &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Earth Observation &amp; Geospatial Intelligence</div>
-      </div>
-      <div class="stage-badge stage-hot">Discovery Call Booked</div>
-    </div>
-    <div class="tags"><span class="tag contract">$192M NGA Contract</span><span class="tag contract">$35M APAC Deal</span></div>
-    <div class="summary">The National Geospatial-Intelligence Agency awarded Maxar a $192 million Foreign Commercial Imagery IDIQ contract on 21 June 2026, enabling Maxar to supply US allies and partners with high-resolution EO, SAR and 3D data products via SecureWatch, Precision3D and WorldView Legion. Separately, Maxar secured $35 million in new tasking contracts from two Asia-Pacific government customers, including the first WorldView Legion 30cm direct-access purchase in the region.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Two government intelligence contracts in a single week confirms Maxar's position as the go-to geospatial provider for allied nations. We have a discovery call in the diary - this is the hook to lock it in. Space-Comm 2027 is where European government and defence buyers are procuring EO data capabilities. Maxar belongs on the floor.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">21 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://satelliteprome.com/news/maxar-secures-192m-foreign-commercial-imagery-contract/" target="_blank" class="source-link">SatellitePro ME &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 3: Blue Origin -->
-  <div class="card hot-pipeline" data-pipeline="hot" data-type="contract" data-owner="danny">
-    <div class="alert-badge">&#128293; Discovery Call Booked</div>
-    <div class="card-top">
-      <div>
-        <div class="company-name">Blue Origin &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Launch &amp; Human Spaceflight</div>
-      </div>
-      <div class="stage-badge stage-hot">Discovery Call Booked</div>
-    </div>
-    <div class="tags"><span class="tag contract">NSSL Phase 3 Task Order</span><span class="tag contract">NASA Moon Base</span></div>
-    <div class="summary">The US Space Force awarded Blue Origin its first National Security Space Launch (NSSL) Phase 3 task order on 28 May - a National Reconnaissance Office mission slated for late 2027 or early 2028. This came the same day New Glenn suffered an engine test explosion at Cape Canaveral, destroying the launchpad with recovery not expected until 2028. NASA Administrator Isaacman confirmed NASA's Artemis programme is now dependent on SpaceX for lunar transport while Blue Origin rebuilds, but the company's Moon Base $188M contract remains active.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Blue Origin's NSSL win and Moon Base contract keep them central to US national security and civil space - despite the New Glenn setback. We have a call in the diary. The rebuild story and the NRO mission timeline make this a compelling moment to bring Blue Origin to Space-Comm 2027, where European launch buyers and defence primes are watching every US launch provider development closely.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">28 May - 1 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://www.cnbc.com/2026/06/01/blue-origin-launchpad-may-not-be-restored-until-2028-nasas-isaacman.html" target="_blank" class="source-link">CNBC &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 4: Fieldfisher -->
-  <div class="card hot-pipeline" data-pipeline="hot" data-type="partnership" data-owner="cameron">
-    <div class="alert-badge">&#128293; Discovery Call Booked</div>
-    <div class="card-top">
-      <div>
-        <div class="company-name">Fieldfisher &#x1F1EC;&#x1F1E7;</div>
-        <div class="company-meta">UK &nbsp;|&nbsp; Space Law &amp; Satellite Projects</div>
-      </div>
-      <div class="stage-badge stage-hot">Discovery Call Booked</div>
-    </div>
-    <div class="tags"><span class="tag partnership">June 2026 Newsletter</span><span class="tag award">Sector Thought Leadership</span></div>
-    <div class="summary">Fieldfisher's Satellite and Space Projects team published its June 2026 newsletter, covering SpaceX's IPO prospectus and $75B Nasdaq debut, the European Commission's EUR 20M IRIS2 terminal funding call, Intuitive Machines' acquisition of Goonhilly Earth Station for &#163;37M, and the Star Catcher optical power-beaming initiative. The newsletter confirms Fieldfisher as a leading voice in UK and European space law and regulation.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">The June newsletter shows Fieldfisher are tracking every major transaction in the sector. We have a discovery call in the diary. Space-Comm Expo Europe 2027 is the industry gathering where the deals they write about are made - their presence positions Fieldfisher as the go-to adviser for exhibitors, investors and government clients walking the floor.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-cameron">Cameron</span>
-        <a href="https://www.fieldfisher.com/en/insights/satellite-and-space-projects-newsletter-june-2026" target="_blank" class="source-link">Fieldfisher &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- CARD 5: Northrop Grumman -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Northrop Grumman &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Defence &amp; Space Prime</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">$398M Space Force Contract</span><span class="tag contract">Golden Dome SBI</span></div>
-    <div class="summary">The US Space Force awarded Northrop Grumman a $398 million contract on 22 June for the Enhanced Protected Tactical Satellite Communications Prototype (PTS-P), delivering resilient Ka-band connectivity in contested environments - with deployment targeted for fiscal year 2030. Separately, Northrop was selected by Space Force on 1 June to demonstrate space-based interceptors for the Golden Dome missile defence architecture, partnering with Apex Space and targeting an on-orbit capability by 2027.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Two major Space Force contracts in June confirms Northrop Grumman's dominance in the contested-space environment mission area. Space-Comm Expo Europe 2027 is where European defence ministries and NATO allies are debating exactly the capabilities Northrop is now building. This is a compelling reason to exhibit - their European partners, suppliers and government customers will be in the room.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">22 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://news.clearancejobs.com/2026/06/22/space-force-expands-protected-satellite-network-with-398m-northrop-grumman-contract/" target="_blank" class="source-link">ClearanceJobs &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 6: Thales Alenia Space -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Thales Alenia Space &#x1F1EB;&#x1F1F7;</div>
-        <div class="company-meta">France/Italy &nbsp;|&nbsp; Satellite Manufacturer</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">&#8364;700M ESA Sentinel-1 NG</span><span class="tag contract">EROSS Orbital Servicing</span></div>
-    <div class="summary">Thales Alenia Space signed a contract with ESA on 10 June at ILA Berlin for two Copernicus Sentinel-1 Next Generation satellites, representing the first tranche of a &#8364;700 million total contract. Each Sentinel-1 NG will carry a C-band SAR and AIS instrument for Earth observation and maritime safety, with Airbus Defence and Space as primary industrial partner. Also in mid-June, Thales Alenia Space was selected by the European Commission for the &#8364;12 million EROSS orbital servicing contract to demonstrate autonomous satellite servicing in orbit.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Leading Europe's flagship EO satellite programme and winning the orbital servicing contract in the same month - this is a defining moment for Thales Alenia Space in Europe. Space-Comm Expo Europe 2027 is the event where their supply chain, partners and government customers converge. This is the right time to be on the floor in front of the people making the next programme decisions.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">10 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-kyle">Kyle</span>
-        <a href="https://www.thalesaleniaspace.com/en/press-releases/thales-alenia-space-awarded-contract-prime-contractor-two-copernicus-sentinel-1-ng" target="_blank" class="source-link">Thales Alenia &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 7: Space Forge -->
-  <div class="card engagement" data-pipeline="engagement" data-type="funding" data-owner="kyle">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Space Forge &#x1F1EC;&#x1F1E7;</div>
-        <div class="company-meta">UK (Cardiff) &nbsp;|&nbsp; In-Space Manufacturing</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag funding">&#163;10M UK/ESA Funding</span><span class="tag award">GSTP Investment</span></div>
-    <div class="summary">Space Forge secured &#163;10 million on 11 June 2026 through the UK Space Agency's increased investment in ESA's General Support Technology Programme (GSTP) - announced by Space Minister Liz Lloyd as part of a &#163;19 million package for UK space technologies. The funding will develop Space Forge's Pridwen reusable fold-out heat shield, designed to make returning materials manufactured in space simpler and cheaper. Space Forge is one of the UK's most watched in-space manufacturing startups.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Government backing of this scale is a signal that Space Forge's in-space manufacturing mission is being taken seriously at the highest level. Space-Comm Expo Europe 2027 is where the investors, primes, and supply chain companies that want to work with you will be - and where the conversation about in-space manufacturing moves from concept to contract. This funding is your hook to get in front of that audience.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">11 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-kyle">Kyle</span>
-        <a href="https://www.satellitetoday.com/manufacturing/2026/06/11/space-forge-secures-10-million-of-new-investment-through-european-uk-space-agencies/" target="_blank" class="source-link">Via Satellite &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 8: Tekever -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Tekever &#x1F1F5;&#x1F1F9;</div>
-        <div class="company-meta">Portugal &nbsp;|&nbsp; Autonomous UAS &amp; Defence Tech</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">Canadian Wildfire Contract</span><span class="tag partnership">Phoenix Heli-Flight</span></div>
-    <div class="summary">TEKEVER announced on 16 June 2026 that it secured a new contract with Phoenix Heli-Flight to provide wildfire detection services in Alberta, Canada using its AR3 fixed-wing UAS combined with specialised sensor technology and the Nova Maps software platform. This follows TEKEVER's existing EMSA contract worth &#8364;30 million for maritime surveillance across Europe and its recent selection for the Helicopter Autonomous Wingmen Programme, building TEKEVER into a multi-domain autonomous systems provider.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Tekever's move into wildfire detection alongside their maritime and defence work shows a company expanding rapidly across autonomous surveillance missions. Space-Comm Expo Europe 2027 is increasingly a dual-use technology event - the intersection of space-based intelligence and air/ground autonomous systems is exactly the audience Tekever should be in front of. Their growth story deserves a stand.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">16 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://avitrader.com/2026/06/16/tekever-powers-new-canadian-wildfire-mission/" target="_blank" class="source-link">AviTrader &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- CARD 9: AST SpaceMobile -->
-  <div class="card engagement" data-pipeline="engagement" data-type="launch" data-owner="cameron">
-    <div class="card-top">
-      <div>
-        <div class="company-name">AST SpaceMobile &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Direct-to-Smartphone Satellite Connectivity</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag launch">BlueBirds 8, 9 &amp; 10</span><span class="tag partnership">SpaceX Falcon 9</span></div>
-    <div class="summary">AST SpaceMobile successfully launched BlueBirds 8, 9 and 10 aboard a SpaceX Falcon 9 on 17 June 2026 from Cape Canaveral, expanding its direct-to-smartphone LEO constellation to 10 active satellites. The Block 2 BlueBirds measure approximately 2,400 sq ft and deliver nearly double the peak data speeds of earlier models. The company is targeting ~45 satellites in orbit by year-end after switching to SpaceX following a Blue Origin New Glenn failure in April.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Three more satellites in orbit and a clear path to 45 by year-end - AST SpaceMobile is executing at pace. The story of how they pivoted from Blue Origin to SpaceX and kept the programme moving is exactly the kind of operational resilience story that European telecoms and defence operators want to hear first-hand at Space-Comm 2027. This launch is the hook to get the conversation going.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">17 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-cameron">Cameron</span>
-        <a href="https://www.businesswire.com/news/home/20260617420856/en/AST-SpaceMobile-Announces-Successful-Orbital-Launch-of-BlueBirds-8-9-and-10" target="_blank" class="source-link">BusinessWire &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 10: Synspective -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Synspective &#x1F1EF;&#x1F1F5;</div>
-        <div class="company-meta">Japan &nbsp;|&nbsp; SAR Satellite Data &amp; Analytics</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">&#165;105.6B Japan MoD Contract</span><span class="tag partnership">KSAT Alliance</span></div>
-    <div class="summary">Synspective confirmed its &#165;105.6 billion (~$681 million) contract with Japan's Ministry of Defense in February 2026, running through March 2031, covering SAR satellite imagery, dedicated ground facilities and programme management for Japan's military constellation. In 2026 the company also expanded its strategic alliance with KSAT (Kongsberg Satellite Services) to enhance SAR satellite operations and global data delivery. Synspective now has 9 SAR satellites on orbit after its ninth launch reached target orbit.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A $681 million defence contract and a growing KSAT alliance makes Synspective one of the most significant SAR operators outside the US and Europe. Space-Comm Expo Europe 2027 is where European defence and intelligence buyers are actively benchmarking SAR data sources - and Japan's MoD relationship gives Synspective a credibility story that opens doors with European procurement. This is the right time to be in the room.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">February 2026 (confirmed)</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-kyle">Kyle</span>
-        <a href="https://synspective.com/press-release/2026/satellite-constellation-project_2/" target="_blank" class="source-link">Synspective &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 11: Anduril Industries -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="cameron">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Anduril Industries &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Defence AI &amp; Space Domain Awareness</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">$100M Space Force SDA</span><span class="tag contract">Golden Dome Lead</span></div>
-    <div class="summary">Anduril secured a $100.3 million modification to a US Space Force contract in May 2026, increasing the total ceiling to $200 million for Space Surveillance Network mesh networking and space domain awareness upgrades. The company is also leading an industry team on the Golden Dome space-based interceptor programme, one of 12 companies awarded OTA agreements worth up to $3.2 billion. Separately, the Army awarded Anduril a $20 billion counter-drone contract in March 2026.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Anduril now holds a portfolio of space domain awareness, space-based interceptor and counter-drone contracts that positions them as the defining defence AI company of this decade. European NATO allies are watching every US Golden Dome development. Space-Comm Expo Europe 2027 is where European defence policy and procurement meets - Anduril belongs in that conversation, and on that floor.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">May 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-cameron">Cameron</span>
-        <a href="https://www.govconwire.com/articles/anduril-100m-space-force-sda-contract-modification" target="_blank" class="source-link">GovConWire &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 12: OroraTech -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
-    <div class="card-top">
-      <div>
-        <div class="company-name">OroraTech &#x1F1E9;&#x1F1EA;</div>
-        <div class="company-meta">Germany &nbsp;|&nbsp; Thermal Earth Observation</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">NASA CSDA Contract</span><span class="tag launch">14-Satellite Constellation</span></div>
-    <div class="summary">NASA awarded OroraTech USA a contract on the Commercial Satellite Data Acquisition (CSDA) On-Ramp 2 programme on 18 June 2026 - worth up to $476 million across all awardees - for thermal satellite imagery supporting Earth science research and wildfire detection. OroraTech has now expanded its constellation from 2 to 14 satellites including a January 2026 launch of four SAFIRE Gen4 payloads aboard Kepler Communications satellites, establishing the world's first thermal livestream capability.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A NASA CSDA contract alongside 14 satellites in orbit makes OroraTech one of Europe's most credible earth observation success stories. Space-Comm Expo Europe 2027 is the event where fire agencies, governments and insurers who need thermal intelligence will be - not a generic tech show, but a room full of their actual customers. Now is the right time to be there.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">18 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-kyle">Kyle</span>
-        <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 13: Pulsar Fusion -->
-  <div class="card engagement" data-pipeline="engagement" data-type="award" data-owner="kyle">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Pulsar Fusion &#x1F1EC;&#x1F1E7;</div>
-        <div class="company-meta">UK &nbsp;|&nbsp; Nuclear Fusion Propulsion</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag award">World First: Fusion Plasma</span><span class="tag launch">2027 In-Orbit Demo Target</span></div>
-    <div class="summary">Pulsar Fusion achieved a world first in March 2026, demonstrating the first plasma from its Sunbird nuclear fusion exhaust system at Amazon's MARS Conference in Ojai, California. The Mark I Sunbird test system successfully produced and confined krypton plasma using electric and magnetic fields. The company targets an in-orbit demonstration in 2027 and a production-ready Sunbird in the early 2030s, with Langmuir probe testing underway in June 2026. A mature Sunbird is projected to reduce Earth-to-Mars payload transit time to under six months.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">First plasma in a fusion propulsion system is a legitimate watershed moment - and Pulsar is a British company doing it. Space-Comm Expo Europe 2027 is where propulsion buyers, satellite manufacturers and investors who want to back the next chapter of in-space transport gather. With an orbit demo coming in 2027, this is exactly when Pulsar Fusion needs to be visible to European customers.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">March 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-kyle">Kyle</span>
-        <a href="https://www.globenewswire.com/news-release/2026/03/25/3262529/0/en/in-a-world-s-first-pulsar-fusion-demonstrates-its-sunbird-nuclear-fusion-rocket-s-first-plasma-at-mars-conference-hosted-by-jeff-bezos.html" target="_blank" class="source-link">GlobeNewswire &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- CARD 14: Kongsberg Defence & Aerospace -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Kongsberg Defence &amp; Aerospace &#x1F1F3;&#x1F1F4;</div>
-        <div class="company-meta">Norway &nbsp;|&nbsp; Defence Electronics &amp; Space</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">NOK 16B Poland Counter-UAS</span><span class="tag contract">$205M Lockheed F-35</span></div>
-    <div class="summary">Kongsberg Defence &amp; Aerospace and PGZ signed a NOK 16 billion (~$1.5 billion) contract with Poland's Armaments Agency in February 2026 to deliver 18 Counter-UAS batteries, including guns, missiles and interceptor drones. Separately, Kongsberg secured a ~NOK 2 billion ($205 million) agreement with Lockheed Martin for F-35 component production through 2030 covering lots 20-22, plus a &#8364;122.5 million NanoAvionics contract for 280 microsatellites. Germany also ordered additional Joint Strike Missiles worth $380 million.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Kongsberg's dominance across counter-UAS, F-35 components and microsatellites puts them at the intersection of European defence rearmament and new space. Space-Comm Expo Europe 2027 is where European defence ministries and procurement agencies are making decisions across all these domains. Kongsberg's breadth of capability deserves a presence in front of that audience.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">February - March 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://www.kongsberg.com/kda/news/news-archive/2026/kongsberg-wins-nok-16-billion-contract-to-deliver-counter-uas-solutions-in-poland/" target="_blank" class="source-link">Kongsberg &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 15: SATLANTIS -->
-  <div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
-    <div class="card-top">
-      <div>
-        <div class="company-name">SATLANTIS &#x1F1EA;&#x1F1F8;</div>
-        <div class="company-meta">Spain &nbsp;|&nbsp; High-Resolution Earth Observation</div>
-      </div>
-      <div class="stage-badge stage-engagement">Engagement</div>
-    </div>
-    <div class="tags"><span class="tag contract">NASA CSDA Contract</span></div>
-    <div class="summary">NASA selected SATLANTIS US on 18 June 2026 as one of eight new awardees on the Commercial Satellite Data Acquisition (CSDA) On-Ramp 2 contract, worth up to $476 million across all awardees through November 2028. SATLANTIS provides ultra-high-resolution optical imagery from compact satellite systems and has positioned itself as a compact, agile alternative to traditional large-format EO satellites, particularly suited to rapid-response intelligence applications.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A NASA CSDA contract is exactly the kind of validation that opens doors with European government and commercial EO buyers. Space-Comm Expo Europe 2027 is where those buyers will be - and where Spanish space industry representation matters. SATLANTIS's compact, high-resolution technology story is one European defence customers need to hear.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">18 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-danny">Danny</span>
-        <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 16: Kuva Space -->
-  <div class="card autumn-close" data-pipeline="autumn" data-type="contract" data-owner="cameron">
-    <div class="card-top">
-      <div>
-        <div class="company-name">Kuva Space &#x1F1EB;&#x1F1EE;</div>
-        <div class="company-meta">Finland &nbsp;|&nbsp; Hyperspectral Earth Observation</div>
-      </div>
-      <div class="stage-badge stage-autumn">Autumn Close</div>
-    </div>
-    <div class="tags"><span class="tag contract">NASA CSDA Contract</span></div>
-    <div class="summary">NASA awarded Kuva US a position on the Commercial Satellite Data Acquisition (CSDA) On-Ramp 2 contract on 18 June 2026, worth up to $476 million across all awardees through November 2028. Kuva Space provides hyperspectral satellite imagery enabling applications in agriculture, forestry, environmental monitoring and disaster response - giving users a much richer spectral view of Earth than standard optical imagery.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A NASA CSDA contract is serious validation for a Finnish hyperspectral startup. We have Kuva Space in the autumn close pipeline - this is the moment to push. Space-Comm Expo Europe 2027 attracts the agriculture, environment and government customers who need hyperspectral data, and the investors who want to back the companies providing it. Use this contract to close the conversation.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">18 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-cameron">Cameron</span>
-        <a href="https://www.nasa.gov/news-release/nasa-awards-contract-for-commercial-satellite-data-acquisition/" target="_blank" class="source-link">NASA &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 17: AAC Clyde Space -->
-  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
-    <div class="card-top">
-      <div>
-        <div class="company-name">AAC Clyde Space &#x1F1EC;&#x1F1E7;</div>
-        <div class="company-meta">UK/Sweden &nbsp;|&nbsp; Small Satellite Manufacturer</div>
-      </div>
-      <div class="stage-badge stage-cold">Cold Outreach</div>
-    </div>
-    <div class="tags"><span class="tag contract">&#8364;10.9M ESA VDES Contract</span></div>
-    <div class="summary">The European Space Agency awarded AAC Clyde Space a &#8364;10.9 million ($12.6 million) contract on 11 June 2026 to complete development and demonstrate VHF Data Exchange System (VDES) satellites - a next-generation maritime communications technology expected to transform ship-to-shore and ship-to-satellite data exchange for the global maritime sector. AAC Clyde Space is positioned as one of the leading small satellite manufacturers with ESA mission heritage.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">An ESA contract for VDES satellite development is a strong news hook to restart the conversation. AAC Clyde Space is exactly the kind of mission-proven small satellite manufacturer that Space-Comm Expo Europe 2027 is built for - maritime, EO, IoT connectivity customers will all be in the room. This contract is the reason to reach out today.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">11 June 2026</div>
-      <div class="footer-right">
-        <span class="owner-pill owner-kyle">Kyle</span>
-        <a href="https://europeanspaceflight.com/esa-awards-contracts-for-lunar-remote-camp-studies/" target="_blank" class="source-link">European Spaceflight &#x2197;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CARD 18: Viasat -->
+  <!-- CARD 2: BAE Systems -->
   <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="christie">
     <div class="card-top">
       <div>
-        <div class="company-name">Viasat &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">USA &nbsp;|&nbsp; Satellite Communications</div>
+        <div class="company-name">BAE Systems &#x1F1EC;&#x1F1E7;</div>
+        <div class="company-meta">UK &nbsp;|&nbsp; Defence &amp; Space Prime</div>
       </div>
       <div class="stage-badge stage-cold">Cold Outreach</div>
     </div>
-    <div class="tags"><span class="tag contract">$437.7M Space Force PTS-G</span></div>
-    <div class="summary">The US Space Force awarded Viasat and Intelsat General Communications two firm-fixed-price contracts totalling $437.7 million for the Protected Tactical SATCOM Global (PTS-G) programme, covering production of the first two operational Swarm 1 satellites including manufacturing, integration, launch and on-orbit checkout. The PTS-G system will deliver protected tactical satellite communications for US and allied forces in contested environments.</div>
+    <div class="tags"><span class="tag contract">Satellite Bus Contract</span><span class="tag award">Vantor / Vantage Programme</span></div>
+    <div class="summary">Vantor selected BAE Systems on 24 June 2026 to build the Vantage satellite bus - a 20cm-class imaging platform for national defence and intelligence programmes. The contract positions BAE Systems as a key supplier for next-generation sovereign imaging capabilities, with the Vantage bus designed for rapid manufacture and deployment in low Earth orbit.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A $437 million Space Force contract for protected tactical SATCOM is exactly the kind of news that gets European NATO allies paying attention to Viasat. We have them in cold outreach - this contract is the perfect reason to make contact now. Space-Comm Expo Europe 2027 attracts European defence ministries and NATO communications procurement teams who need to understand what PTS-G means for their own protected communications requirements.</div>
+      <div class="outreach-text">BAE Systems winning the Vantage bus contract confirms their push into the commercial and defence small satellite market. Space-Comm 2027 is where the UK's sovereign space supply chain gathers - BAE Systems on the exhibition floor signals their intent to lead that ecosystem, and puts them in direct conversation with the government and agency buyers funding the next wave of programmes.</div>
     </div>
     <div class="card-footer">
-      <div class="card-date">June 2026</div>
+      <div class="card-date">24 June 2026</div>
       <div class="footer-right">
         <span class="owner-pill owner-christie">Christie</span>
-        <a href="https://defence-industry.eu/u-s-space-force-awards-437-7-million-in-contracts-for-first-protected-tactical-satcom-global-satellites/" target="_blank" class="source-link">Defence Industry EU &#x2197;</a>
+        <a href="https://spacenews.com/vantor-selects-bae-systems-to-build-next-generation-imaging-satellites/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 3: OHB SE -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="funding" data-owner="christie">
+    <div class="card-top">
+      <div>
+        <div class="company-name">OHB SE &#x1F1E9;&#x1F1EA;</div>
+        <div class="company-meta">Germany &nbsp;|&nbsp; Satellite Manufacturer</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag funding">&#8364;900M Private Placement</span><span class="tag ma">Expansion &amp; M&amp;A</span></div>
+    <div class="summary">OHB SE successfully completed an upsized &#8364;900 million private placement on 25 June 2026, with the subscription period opening to investors. The capital raise - larger than initially planned - is earmarked for business expansion, M&amp;A activity, and investment in launch vehicle capabilities. OHB is one of Europe's largest independent satellite manufacturers and the raise signals significant growth ambitions.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">&#8364;900M in fresh capital means OHB is in acquisition mode and scaling fast. Companies raising at this scale are making visibility decisions right now - Space-Comm Expo Europe 2027 is where European primes, agencies and supply chain meet. OHB exhibiting or speaking positions them as the leading independent European manufacturer at exactly the moment they're telling investors they're building market share.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">25 June 2026</div>
+      <div class="footer-right">
+        <span class="owner-pill owner-christie">Christie</span>
+        <a href="https://www.aviationweek.com/space" target="_blank" class="source-link">Aviation Week &#x2197;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 4: AWS -->
+  <div class="card engagement" data-pipeline="engagement" data-type="partnership" data-owner="cameron">
+    <div class="card-top">
+      <div>
+        <div class="company-name">AWS &#x1F1FA;&#x1F1F8;</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Cloud &amp; Space Technology</div>
+      </div>
+      <div class="stage-badge stage-engagement">Engagement</div>
+    </div>
+    <div class="tags"><span class="tag partnership">SpaceConnect Association</span><span class="tag partnership">LEO NGSO Alliance</span></div>
+    <div class="summary">Amazon Web Services joined Iridium, Telesat and Globalstar on 24 June 2026 to launch the SpaceConnect Association, a new industry body representing LEO non-geostationary orbit (NGSO) satellite operators. The association is focused on advocating for LEO spectrum access, interoperability standards, and regulatory frameworks at the ITU and national regulators. AWS brings cloud ground infrastructure credentials alongside the established satellite operators.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">AWS co-founding an industry association with major satellite operators is a clear signal they're deepening their space infrastructure play beyond cloud services. Space-Comm 2027 is the European forum where spectrum, standards and satellite connectivity are actively debated by the regulators, operators and buyers the SpaceConnect Association needs to influence. Cameron should use this as a warm follow-up hook.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">24 June 2026</div>
+      <div class="footer-right">
+        <span class="owner-pill owner-cameron">Cameron</span>
+        <a href="https://www.satellitetoday.com" target="_blank" class="source-link">Via Satellite &#x2197;</a>
       </div>
     </div>
   </div>
@@ -583,7 +241,7 @@
 <div class="no-results" id="noResults">No matches for the current filter combination.</div>
 
 <div class="footer">
-  <strong>Space-Comm Pipeline News Intel</strong> &nbsp;|&nbsp; 18 companies matched &nbsp;|&nbsp; 500 pipeline companies monitored &nbsp;|&nbsp; Generated 25 June 2026
+  <strong>Space-Comm Pipeline News Intel</strong> &nbsp;|&nbsp; 4 companies matched &nbsp;|&nbsp; 500 pipeline companies monitored &nbsp;|&nbsp; Generated 25 June 2026
 </div>
 
 <script>
@@ -592,7 +250,6 @@
   let activeOwner = 'all';
 
   function filterCards(filterType, value, el) {
-    // Update active state
     if (filterType === 'stage') {
       activeStage = value;
       document.querySelectorAll('#stageFilters .filter-btn').forEach(b => b.classList.remove('active'));
@@ -611,7 +268,6 @@
       el.classList.add('active');
     }
 
-    // Apply filters
     const cards = document.querySelectorAll('.card');
     let visible = 0;
     cards.forEach(card => {
