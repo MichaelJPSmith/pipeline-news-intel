@@ -100,6 +100,23 @@
   .filter-btn.funding-filter-btn:hover { border-color: #d97706; color: #d97706; }
   .filter-btn.funding-filter-btn.active { background: #d97706; border-color: #d97706; color: #fff; }
   .amount-badge { background: #fef3c7; color: #92400e; font-weight: 500; font-size: 12px; padding: 2px 10px; border-radius: 10px; margin-left: 8px; }
+  .deepdive-panel { margin: 18px 32px 0; background: #fdfaf5; border: 1px solid #e8e0d0; border-left: 4px solid #d40075; border-radius: 10px; padding: 24px 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .deepdive-eyebrow { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #d40075; margin-bottom: 4px; }
+  .deepdive-title { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 4px; }
+  .deepdive-range { font-size: 13px; color: #7c6f5e; margin-bottom: 18px; }
+  .deepdive-stats { display: flex; gap: 28px; flex-wrap: wrap; padding: 14px 0; margin-bottom: 18px; border-top: 1px solid #ede5d8; border-bottom: 1px solid #ede5d8; }
+  .deepdive-stat-value { font-size: 20px; font-weight: 800; color: #d40075; }
+  .deepdive-stat-label { font-size: 11px; color: #9c8b78; text-transform: uppercase; letter-spacing: 0.4px; }
+  .deepdive-section-title { font-size: 13px; font-weight: 800; color: #111827; margin: 18px 0 8px; }
+  .deepdive-section-title:first-of-type { margin-top: 0; }
+  .deepdive-text { font-size: 13.5px; color: #4a3f30; line-height: 1.75; margin-bottom: 10px; }
+  .deepdive-text strong { color: #111827; }
+  .deepdive-actions { list-style: none; padding: 0; margin: 0; }
+  .deepdive-actions li { font-size: 13px; color: #4a3f30; line-height: 1.7; padding: 7px 0 7px 20px; border-bottom: 1px dashed #ede5d8; position: relative; }
+  .deepdive-actions li:last-child { border-bottom: none; }
+  .deepdive-actions li::before { content: "\2192"; position: absolute; left: 0; color: #d40075; font-weight: 700; }
+  .deepdive-actions strong { color: #111827; }
+  @media (max-width: 600px) { .deepdive-panel { margin-left: 16px; margin-right: 16px; padding: 18px; } }
 </style>
 </head>
 <body>
@@ -113,9 +130,9 @@
 </div>
 
 <div class="stats-bar">
-  <div class="stat"><div class="stat-value" id="visibleCount">8</div><div class="stat-label">Total Matches</div></div>
-  <div class="stat"><div class="stat-value">2</div><div class="stat-label">In Pipeline</div></div>
-  <div class="stat"><div class="stat-value prospect-count">2</div><div class="stat-label">Prospect Radar</div></div>
+  <div class="stat"><div class="stat-value" id="visibleCount">18</div><div class="stat-label">Total Matches</div></div>
+  <div class="stat"><div class="stat-value">11</div><div class="stat-label">In Pipeline</div></div>
+  <div class="stat"><div class="stat-value prospect-count">3</div><div class="stat-label">Prospect Radar</div></div>
   <div class="stat"><div class="stat-value" style="color:#d97706;">2</div><div class="stat-label">Funding Rounds</div></div>
   <div class="stat"><div class="stat-value" style="color:#d97706;">$1.1B+</div><div class="stat-label">Capital Raised (Day)</div></div>
   <div class="date-note">3 August 2026 &nbsp;|&nbsp; 3 days covered (Fri-Mon) &nbsp;|&nbsp; 500 companies monitored</div>
@@ -152,19 +169,54 @@
   </div>
 </div>
 
+<div class="deepdive-panel">
+  <div class="deepdive-eyebrow">&#128202; Weekly Deep Dive</div>
+  <div class="deepdive-title">7-Day Report: 28 July &ndash; 3 August 2026</div>
+  <div class="deepdive-range">Covers every matched news item currently live on this page across the last 7 days &middot; 500 companies monitored</div>
+
+  <div class="deepdive-stats">
+    <div><div class="deepdive-stat-value">11</div><div class="deepdive-stat-label">Pipeline Touches</div></div>
+    <div><div class="deepdive-stat-value">5</div><div class="deepdive-stat-label">New Prospects</div></div>
+    <div><div class="deepdive-stat-value">2</div><div class="deepdive-stat-label">Funding Rounds</div></div>
+    <div><div class="deepdive-stat-value" style="color:#d97706;">$1.1B+</div><div class="deepdive-stat-label">Capital Raised</div></div>
+    <div><div class="deepdive-stat-value">$2.9B+</div><div class="deepdive-stat-label">Matched Contract Value</div></div>
+  </div>
+
+  <div class="deepdive-section-title">The headline: one contract did most of the week's work</div>
+  <div class="deepdive-text">The Space Force's <strong>$981M National Space Test and Training Complex IDIQ</strong> (awarded 31 July, running through July 2032) named 15 companies - and <strong>nine of them are already in the Space-Comm pipeline</strong>: Boeing, Lockheed Martin, Airbus, Firefly Aerospace, Northrop Grumman, Redwire Space, Sierra Space, York Space Systems and Amentum. That's close to two-thirds of the awardees on a single government contract already sat in our CRM - a strong read that the show's defence and test/training track is chasing the right accounts. It lands alongside SpaceX's separate $1.6B Falcon 9 award (also Space Force, also this week), making government launch and test spend the single biggest storyline of the period.</div>
+
+  <div class="deepdive-section-title">Money moved toward proven backlogs, not just promise</div>
+  <div class="deepdive-text"><strong>K2 Space</strong> closed a $500M Series D at a $6.8B valuation days after crossing $1B in signed contracts, and <strong>Space-Eyes</strong> agreed a $638M SPAC merger with real (if modest) government revenue already on the books. Neither is in the pipeline yet - both are well-capitalised, credible exhibitor conversations to start now, before their profile (and their price) rises further once the Space-Eyes Nasdaq listing closes in Q4.</div>
+
+  <div class="deepdive-section-title">Sovereign infrastructure is becoming its own theme</div>
+  <div class="deepdive-text">Spain's Hisdesat picking <strong>Airbus</strong> and Thales Alenia Space to build SpainSat NG-III, <strong>Eclipse Space</strong>'s sovereign-satcom architecture work with AccelerComm, and <strong>Hispasat</strong>'s teleport certification all point the same direction: European buyers want to own their space infrastructure rather than rent it. That's a strong thread to build the 2027 government and connectivity programming around, and it overlaps with three separate items this week.</div>
+
+  <div class="deepdive-section-title">Direct-to-device hasn't cooled off</div>
+  <div class="deepdive-text"><strong>AST SpaceMobile</strong>'s BlueBird constellation progress and <strong>Eclipse Space</strong>'s D2D physical-layer work both landed the same week - still the most active theme in commercial satcom, and worth a dedicated connectivity panel or pavilion angle for 2027.</div>
+
+  <div class="deepdive-section-title">This week's recommended actions</div>
+  <ul class="deepdive-actions">
+    <li><strong>Christie</strong> &ndash; three fresh touches (Boeing, Lockheed Martin, Airbus) off the NSTTC award; Airbus also has the new SpainSat NG-III win as a second hook.</li>
+    <li><strong>Kyle</strong> &ndash; three touches (Sierra Space, York Space Systems, Amentum) off the same award, the most of any rep this week.</li>
+    <li><strong>Cameron</strong> &ndash; two touches (Firefly Aerospace, Redwire Space) off the NSTTC award.</li>
+    <li><strong>Danny</strong> &ndash; one touch (Northrop Grumman) off the NSTTC award, plus SpaceX's separate $1.6B Falcon 9 deal already on his book.</li>
+    <li><strong>Unassigned</strong> &ndash; open conversations with K2 Space and Space-Eyes while funding is fresh, and with Eclipse Space and Hispasat on the sovereign-satcom government track.</li>
+  </ul>
+</div>
+
 <div id="cardContainer">
 
 <!-- day-section-start: 2026-08-03 -->
 <div class="day-divider-line"></div>
 <div class="day-divider-bar">
   <span class="day-divider-date">3 August 2026</span>
-  <span class="day-divider-count">2 pipeline &middot; 2 prospects &middot; 2 funding</span>
+  <span class="day-divider-count">11 pipeline &middot; 3 prospects &middot; 2 funding</span>
 </div>
 
 <!-- IN PIPELINE SUB-SECTION -->
 <div class="section-header">
   <span class="section-label section-label-pipeline">&#128293; In Pipeline</span>
-  <span class="section-count">2 companies</span>
+  <span class="section-count">11 companies</span>
 </div>
 <div class="day-grid">
 
@@ -210,13 +262,203 @@
     </div>
   </div>
 
+  <!-- CARD: Boeing -->
+  <div class="card hot-pipeline" data-pipeline="hot" data-type="contract" data-owner="christie">
+    <div class="alert-badge">&#128293; Hot Pipeline</div>
+    <div class="card-top">
+      <div>
+        <div class="company-name">Boeing</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Prime Contractor &ndash; Space Systems &amp; Launch</div>
+      </div>
+      <div class="stage-badge stage-hot">Hot Pipeline</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Boeing was named among the 15 awardees, alongside Amentum, BAE Systems, CACI International, Firefly Aerospace, L3Harris, Lockheed Martin, Northrop Grumman, Redwire Space Missions, Rocket Lab, Sierra Space, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Boeing on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Lockheed Martin Sponsorship -->
+  <div class="card autumn-close" data-pipeline="autumn" data-type="contract" data-owner="christie">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Lockheed Martin Sponsorship</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Prime Contractor &ndash; Space &amp; Missile Defense</div>
+      </div>
+      <div class="stage-badge stage-autumn">Autumn Close</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Lockheed Martin Sponsorship was named among the 15 awardees, alongside Amentum, BAE Systems, Boeing, CACI International, Firefly Aerospace, L3Harris, Northrop Grumman, Redwire Space Missions, Rocket Lab, Sierra Space, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Lockheed Martin Sponsorship on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Airbus -->
+  <div class="card autumn-close" data-pipeline="autumn" data-type="contract" data-owner="christie">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Airbus</div>
+        <div class="company-meta">Europe &nbsp;|&nbsp; Prime Contractor &ndash; Satellites &amp; Space Systems</div>
+      </div>
+      <div class="stage-badge stage-autumn">Autumn Close</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag partnership">SpainSat NG-III</span></div>
+    <div class="summary">Airbus had a two-part week: on 31 July 2026 it was named among 15 awardees on the Space Force's $981 million NSTTC test and range IDIQ (through July 2032), and the same day Hisdesat contracted Airbus Defence and Space as prime contractor - alongside Thales Alenia Space - to build the SpainSat NG-III secure communications satellite for Spain, NATO and allied forces, launching 2030 and entering service in 2031.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Two sovereign/defence contract wins in one day - a well-timed moment to reconnect with Airbus on their Autumn Close conversation, with both the NSTTC award and the new NATO-facing SpainSat NG-III programme as fresh, concrete talking points.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.airbus.com/en/newsroom/press-releases/2026-07-airbus-awarded-contract-for-spainsat-ng-iii-secure-communications-satellite" class="source-link" target="_blank">Airbus &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Firefly Aerospace -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="cameron">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Firefly Aerospace</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Launch Vehicles &amp; Lunar Landers</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Firefly Aerospace was named among the 15 awardees, alongside Amentum, BAE Systems, Boeing, CACI International, L3Harris, Lockheed Martin, Northrop Grumman, Redwire Space Missions, Rocket Lab, Sierra Space, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Firefly Aerospace on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Northrop Grumman -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="danny">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Northrop Grumman</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Prime Contractor &ndash; Space Systems &amp; Missile Defense</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Northrop Grumman was named among the 15 awardees, alongside Amentum, BAE Systems, Boeing, CACI International, Firefly Aerospace, L3Harris, Lockheed Martin, Redwire Space Missions, Rocket Lab, Sierra Space, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Northrop Grumman on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Redwire Space -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="cameron">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Redwire Space</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Space Infrastructure &amp; In-Space Manufacturing</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Redwire Space was named among the 15 awardees, alongside Amentum, BAE Systems, Boeing, CACI International, Firefly Aerospace, L3Harris, Lockheed Martin, Northrop Grumman, Rocket Lab, Sierra Space, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Redwire Space on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Sierra Space -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Sierra Space</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Space Systems &amp; Cargo Logistics</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Sierra Space was named among the 15 awardees, alongside Amentum, BAE Systems, Boeing, CACI International, Firefly Aerospace, L3Harris, Lockheed Martin, Northrop Grumman, Redwire Space Missions, Rocket Lab, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Sierra Space on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: York Space Systems -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
+    <div class="card-top">
+      <div>
+        <div class="company-name">York Space Systems</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Smallsat Manufacturing</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. York Space Systems was named among the 15 awardees, alongside Amentum, BAE Systems, Boeing, CACI International, Firefly Aerospace, L3Harris, Lockheed Martin, Northrop Grumman, Redwire Space Missions, Rocket Lab, Sierra Space and Viasat.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with York Space Systems on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Amentum -->
+  <div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
+    <div class="card-top">
+      <div>
+        <div class="company-name">Amentum</div>
+        <div class="company-meta">USA &nbsp;|&nbsp; Space &amp; Defense Engineering Services</div>
+      </div>
+      <div class="stage-badge stage-cold">Cold Outreach</div>
+    </div>
+    <div class="tags"><span class="tag contract">$981M IDIQ Award</span><span class="tag contract">NSTTC</span></div>
+    <div class="summary">The Space Force's Space Systems Command awarded 15 companies spots on a $981 million indefinite-delivery/indefinite-quantity contract on 31 July 2026 to build test, evaluation and range capability for the National Space Test and Training Complex in Colorado Springs - work spanning space- and ground-based systems, digital twins and simulation environments, running through July 2032. Amentum was named among the 15 awardees, alongside BAE Systems, Boeing, CACI International, Firefly Aerospace, L3Harris, Lockheed Martin, Northrop Grumman, Redwire Space Missions, Rocket Lab, Sierra Space, Viasat and York Space Systems.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Nine of the fifteen companies on this single award are already Space-Comm prospects or accounts - a strong signal the show's defence and test/training track is pulling the right crowd. Worth using this contract as a warm, congratulatory reason to reconnect with Amentum on their 2027 stand.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.govconwire.com/articles/space-force-981m-space-test-training-idiq-award" class="source-link" target="_blank">GovCon Wire &rarr;</a></div>
+    </div>
+  </div>
+
 </div>
 
 <!-- PROSPECT RADAR SUB-SECTION -->
 <div class="prospect-divider-line"></div>
 <div class="section-header">
   <span class="section-label section-label-prospect">&#128269; Prospect Radar &mdash; Not yet in pipeline</span>
-  <span class="section-count">2 companies</span>
+  <span class="section-count">3 companies</span>
 </div>
 <div class="day-grid">
 
@@ -261,6 +503,28 @@
     <div class="card-footer">
       <div class="card-date">31 July 2026</div>
       <div class="footer-right"><span class="owner-pill owner-unassigned">Unassigned</span><a href="https://www.satellitetoday.com/connectivity/2026/07/31/accelercom-and-eclipse-space-reveals-details-of-d2d-collaboration/" class="source-link" target="_blank">Via Satellite &rarr;</a></div>
+    </div>
+  </div>
+
+  <!-- CARD: Hispasat -->
+  <div class="card prospect" data-pipeline="prospect" data-type="award" data-owner="unassigned">
+    <div class="prospect-badge">&#128269; New Prospect</div>
+    <div class="card-top">
+      <div>
+        <div class="company-name">Hispasat</div>
+        <div class="company-meta">Spain &nbsp;|&nbsp; Satellite Operator &ndash; Ground Infrastructure &amp; Teleport Services</div>
+      </div>
+      <div class="stage-badge stage-prospect">Not In Pipeline</div>
+    </div>
+    <div class="tags"><span class="tag award">WTA Certification</span><span class="tag partnership">Madrid Teleport</span></div>
+    <div class="summary">Hispasat's Madrid teleport secured World Teleport Association certification on 31 July 2026, reinforcing the ground-segment credentials behind its satellite service delivery across Europe and Latin America - landing the same week its sister programme, Hisdesat, signed Airbus and Thales Alenia Space to build the SpainSat NG-III secure comms satellite.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Hispasat is investing in ground-infrastructure credibility right as Spain's wider secure-satcom programme (SpainSat NG-III) ramps up - a natural fit to showcase teleport and ground-segment capability to Space-Comm's connectivity and government buyers.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">31 July 2026</div>
+      <div class="footer-right"><span class="owner-pill owner-unassigned">Unassigned</span><a href="https://www.satellitetoday.com/connectivity/2026/07/31/hispasat-obtains-wta-certification-for-madrid-teleport/" class="source-link" target="_blank">Via Satellite &rarr;</a></div>
     </div>
   </div>
 
