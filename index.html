@@ -80,6 +80,8 @@
     .date-note { margin-left: 0; }
     .day-grid { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
   }
+
+  .section-label-cold { color: #6b7280; }
 </style>
 </head>
 <body>
@@ -89,15 +91,15 @@
     <img class="logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAADgCAMAAAAua1QnAAAAn1BMVEVHcEz////////////////18ff////////////////////q5PD////////////////99/v///+YD2z///////////////87a7QHicyxDnUGi80Cm9sIic2qD3TaEYigD3DYEYjXEIbtsNIPeMGiDm////8Cm9ngE4oTarUElNMHjM3XEoYPdLzOEoMKhMfGEX8MfMK2EXmtEHW+EXyjEHCXseB/AAAAJXRSTlMAxVEa7QKP/vvbJgmxQmE0D6D+c2p8hiF6N07QoZLZya9mdc1d3+1eHQAAVPpJREFUeNrsnQt32jrWhuXLZss3bDdAmrZJk3Xq9syX5suk9P//tkGA2UhbMjKXNOnSY8KcxlgIZ83jl21ZFoFAIBAIBAKBQCDwigAU+8AKEQgEAoF3DMDD/f3djz3u7u7u7+8fHm4aECuC5wOBQOC9ATcPJHbG3f3DzU0TYnwgEAi8K6C5/3GYu9sbCAE+EAgE3gvFww9f7m8fChEIBAKBt88NxXYvVjWaUKEJBAKBtw00P8bx+Liq0DxAqM8EAoHA2wVuRmh9vaxQT/ehPhMIBAJvlht/r5PfH7fx/Sak90AgEHiT3HmpnbyunvrHyu83oToTCAQCbw64963I7Kf2XvDq6S5UZwKBQOCt8fBjVHAnt28eilV15loEAoFA4O1QeBVlerMbYid+PBQgXgkIE96EPRoIBIaBhxFmN2oyuuLvHuDyDlJPTZLneQMChF1IINwcchgc3zHYtQDg0faZO0FbAvUIvHoOApo8z5NCgGfXT/l8/FVh0qJA4A+dTdUGyfRm3zxp/Lh07R2KejqJMim7Tso0aq+qxCbrauokruoEYEAluWWb5nDsberpoo2yFVE5mVWJVZL11JMYjt0/eTxvy2jdjXYe5wXAoZ4n1bzMUoldJ9OsnKhtBKeaa+TCRn4136cSa4rpfJ9ZIyxAPN/nqhGBQOD1hkEaqZ3z9Hh3DZdL7ck8RZQrULH+XxlVpsCgRjddh5jNE6fz8g4Z3fygUlupOtSDiFnMvAqJRF8qOGb/NGr/oNzuIomI6SIBGDxYRkh7tJPqsJnNGr5Npvc9bUAwwP6iGDVkyTblL+qmIhAInMith9f7kgy5XS2G2NVjxX0hLgGIKkolruiItVGz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" alt="Space-Comm">
     <div class="badge">Pipeline News Intel</div>
   </div>
-  <div class="header-right">Daily Briefing &nbsp;|&nbsp; 11 August 2026</div>
+  <div class="header-right">Daily Briefing &nbsp;|&nbsp; 12 August 2026</div>
 </div>
 
 <div class="stats-bar">
-  <div class="stat"><div class="stat-value" id="visibleCount">15</div><div class="stat-label">Total Matches</div></div>
+  <div class="stat"><div class="stat-value" id="visibleCount">27</div><div class="stat-label">Total Matches</div></div>
   <div class="stat"><div class="stat-value">5</div><div class="stat-label">Hot Pipeline</div></div>
-  <div class="stat"><div class="stat-value">2</div><div class="stat-label">Autumn Close</div></div>
-  <div class="stat"><div class="stat-value">8</div><div class="stat-label">Contracts</div></div>
-  <div class="date-note">11 August 2026 &nbsp;|&nbsp; Last 7 days &nbsp;|&nbsp; 493 companies monitored</div>
+  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Autumn Close</div></div>
+  <div class="stat"><div class="stat-value">11</div><div class="stat-label">Contracts</div></div>
+  <div class="date-note">12 August 2026 &nbsp;|&nbsp; Last 7 days &nbsp;|&nbsp; 500 companies monitored</div>
 </div>
 
 <div class="filter-section">
@@ -137,318 +139,274 @@
 </div>
 <div class="day-grid">
 
-<!-- CARD: ICEYE -->
+<!-- CARD: Skyroot Aerospace -->
 <div class="card hot-pipeline" data-pipeline="hot" data-type="funding" data-owner="danny">
   <div class="card-top">
     <div>
-      <div class="company-name">ICEYE</div>
-      <div class="company-meta">Finland &nbsp;|&nbsp; SAR Satellite Imagery</div>
+      <div class="company-name">Skyroot Aerospace</div>
+      <div class="company-meta">India | Launch Vehicles</div>
     </div>
     <div class="stage-badge stage-hot">Discovery Call Booked</div>
   </div>
   <span class="alert-badge">&#128293; Hot Deal</span>
-  <div class="tags"><span class="tag funding">EU Scaleup Fund</span><span class="tag funding">EQT-backed</span></div>
-  <div class="summary">The EU's new &euro;5bn ($5.8bn) Scaleup Europe Fund, managed by EQT, has disclosed its first investment is in Finnish SAR satellite company ICEYE, co-leading alongside existing investor General Atlantic. It's a strong signal that Brussels sees ICEYE as strategic national infrastructure, not just a vendor.</div>
+  <div class="tags"><span class="tag funding">$60M Series C</span><span class="tag launch">1st Private Orbital Launch</span></div>
+  <div class="summary">Skyroot closed a $60M Series C in May, nearly doubling its valuation and making it India's first space unicorn. On 18 July its Vikram-1 rocket completed India's first privately-built orbital launch, putting the country alongside the US and China as the only nations with private orbital launch capability. The company has grown past 1,000 employees as it scales manufacturing.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">ICEYE just landed a vote of confidence from the EU's flagship deep-tech fund - that's fresh budget and a strategic mandate to raise their European profile. Good moment for Danny to push the Discovery Call forward while they're actively thinking about visibility across European defence and government buyers.</div>
+    <div class="outreach-text">Skyroot just went from promising startup to national milestone in one month - flush with cash and global press attention. Danny should use the Vikram-1 launch as the icebreaker on the Discovery Call: they need a European stage to tell that story to defence and government buyers.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">5 August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://www.bloomberg.com/news/articles/2026-08-05/eqt-run-scaleup-europe-fund-invests-in-satellite-startup-iceye" class="source-link" target="_blank">Bloomberg &rarr;</a></div>
+    <div class="card-date">18 July - 7 August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://www.satellitetoday.com/finance/2026/05/07/skyroot-secures-60m-in-funding-becoming-indias-first-space-unicorn/" class="source-link" target="_blank">Via Satellite &rarr;</a></div>
   </div>
 </div>
 
-<!-- CARD: Maxar Technologies -->
-<div class="card hot-pipeline" data-pipeline="hot" data-type="contract" data-owner="danny">
+<!-- CARD: Saxavord -->
+<div class="card hot-pipeline" data-pipeline="hot" data-type="launch" data-owner="christie">
   <div class="card-top">
     <div>
-      <div class="company-name">Maxar Technologies</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Earth Observation &amp; GEOINT</div>
+      <div class="company-name">Saxavord</div>
+      <div class="company-meta">UK (Shetland) | Spaceport</div>
     </div>
     <div class="stage-badge stage-hot">Discovery Call Booked</div>
   </div>
   <span class="alert-badge">&#128293; Hot Deal</span>
-  <div class="tags"><span class="tag contract">$359M NGA Deal</span><span class="tag contract">Commercial GEOINT</span></div>
-  <div class="summary">Maxar has been awarded the Commercial GEOINT Access Portal contract by the National Geospatial-Intelligence Agency - a five-year, sole-source deal worth roughly $359M for web-based delivery of commercial imagery, following on from the Global-Enhanced GEOINT Delivery award. It sits alongside a separate $14.2M AFRL contract to build the Red Wing automated GEOINT analysis architecture.</div>
+  <div class="tags"><span class="tag launch">RFA One Delay</span></div>
+  <div class="summary">SaxaVord Spaceport's tenant Rocket Factory Augsburg found a technical issue during testing of its RFA One rocket, delaying what would have been the UK's first vertical orbital launch, originally targeted for mid-August to early September. Despite the setback, industry commentators still rate the UK sector's long-term growth prospects highly, citing rising commercial and national security demand.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Two fresh US government wins in the same window means Maxar's GEOINT business is in growth mode - a good hook for Danny to talk about Space-Comm as the place they meet European government and defence buyers who want the same commercial imagery access.</div>
+    <div class="outreach-text">A delay is a bump, not a dead end - and it keeps SaxaVord in every UK space headline this month. Christie can use the coverage to push the Discovery Call: whenever RFA One flies, Space-Comm is where SaxaVord tells that story to the exhibitors and buyers who'll fund the next launch campaign.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://seekingalpha.com/news/3933389-maxar-wins-192m-idiq-contract-from-national-geospatial-intelligence-agency" class="source-link" target="_blank">SeekingAlpha &rarr;</a></div>
+    <div class="card-date">Early August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.primetimer.com/features/uk-space-industry-eyes-major-growth-despite-delay-in-first-british-rocket-launch" class="source-link" target="_blank">PRIMETIMER / Orbital Today &rarr;</a></div>
   </div>
 </div>
 
-<!-- CARD: COMSAT -->
-<div class="card hot-pipeline" data-pipeline="hot" data-type="ma" data-owner="kyle">
+<!-- CARD: Helsing AI -->
+<div class="card hot-pipeline" data-pipeline="hot" data-type="funding" data-owner="cameron">
   <div class="card-top">
     <div>
-      <div class="company-name">COMSAT</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Satellite Ground Services</div>
+      <div class="company-name">Helsing AI</div>
+      <div class="company-meta">Germany | Defence AI & Space Reconnaissance</div>
     </div>
     <div class="stage-badge stage-hot">Discovery Call Booked</div>
   </div>
   <span class="alert-badge">&#128293; Hot Deal</span>
-  <div class="tags"><span class="tag ma">Acquired by Intuitive Machines</span></div>
-  <div class="summary">Intuitive Machines completed its acquisition of Goonhilly Earth Station and COMSAT on 5 August 2026, positioning itself as a vertically-integrated prime spanning ground infrastructure, satcom services and lunar systems. COMSAT now sits inside a much larger, better-funded parent company.</div>
+  <div class="tags"><span class="tag funding">$1.8B Series E</span><span class="tag partnership">OHB Space JV</span></div>
+  <div class="summary">Helsing raised $1.8B in a Series E on 13 July at an $18B post-money valuation, one of the largest defence-tech raises in Europe this year. In June it formed "KIRK", a joint venture with OHB dedicated to AI-based tactical space reconnaissance systems, and it launched a new autonomous electronic-warfare aircraft, the CA-1.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">New ownership means new budget conversations and a bigger story to tell. Kyle should get ahead of the integration - COMSAT under Intuitive Machines' banner is a stronger, better-resourced exhibitor pitch than COMSAT standalone.</div>
+    <div class="outreach-text">Helsing is now a space player with a war chest and a fresh JV to prove it. Cameron should move fast on the Discovery Call - this is exactly the moment to get them thinking about Space-Comm as the venue to introduce KIRK to European government and defence buyers.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">5 August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.satellitetoday.com/focus/mergers-and-acquisitions/" class="source-link" target="_blank">Via Satellite &rarr;</a></div>
+    <div class="card-date">13 June - 13 July 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://resiliencemedia.co/helsing-on-the-cusp-of-a-1-2b-raise-forms-space-jv-with-ohb-to-build-ai-based-targeting-systems/" class="source-link" target="_blank">Helsing Newsroom / Resilience Media &rarr;</a></div>
   </div>
 </div>
 
-<!-- CARD: rohde-schwarz -->
-<div class="card hot-pipeline" data-pipeline="hot" data-type="partnership" data-owner="christie">
+<!-- CARD: Avio S.p.A. -->
+<div class="card hot-pipeline" data-pipeline="hot" data-type="contract" data-owner="cameron">
   <div class="card-top">
     <div>
-      <div class="company-name">Rohde &amp; Schwarz</div>
-      <div class="company-meta">Germany &nbsp;|&nbsp; Satcom &amp; RF Test/Measurement</div>
+      <div class="company-name">Avio S.p.A.</div>
+      <div class="company-meta">Italy | Launch Vehicles & Propulsion</div>
     </div>
     <div class="stage-badge stage-hot">Proposal Sent</div>
   </div>
   <span class="alert-badge">&#128293; Hot Deal</span>
-  <div class="tags"><span class="tag partnership">Airbus Consortium</span><span class="tag partnership">Sovereign ISR</span></div>
-  <div class="summary">Rohde &amp; Schwarz has joined an Airbus Defence and Space-led consortium with constellr, Orbint and HPS to build a sovereign satellite-based Earth observation and ISR solution for Europe. The company is also hosting its own Satellite Industry Days 2026 under the theme "From Earth to Orbit."</div>
+  <div class="tags"><span class="tag contract">$65M US Motor Deal</span><span class="tag contract">$500M Virginia Plant</span></div>
+  <div class="summary">Avio signed a $65M contract for a new solid rocket motor development project in the US and is planning a $500M solid rocket motor facility in Virginia to serve US defence and tactical missile demand. Its P160C boosters also powered the Ariane 6 VA269 flight in June, and Avio has now taken over commercial marketing of Vega C launches from Arianespace.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Rohde &amp; Schwarz is actively positioning itself in the sovereign European space ISR conversation - exactly the audience at Space-Comm 2027. Christie can use the Airbus consortium news to push the proposal over the line: this is the room where that story gets told to buyers.</div>
+    <div class="outreach-text">Avio is building a genuine US footprint on top of its European launch business - a much bigger story than when the proposal first went out. Cameron should refresh the proposal to reflect the US expansion and use it to close: this is the kind of transatlantic growth story Space-Comm buyers want to hear direct from the source.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">June 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://euro-sd.com/2026/06/news/air/51302/airbus-defence-and-space-sovereign-space-intelligence-consortium-with-rohde-schwarz-constellr-orbint-and-hps/" class="source-link" target="_blank">European Security &amp; Defence &rarr;</a></div>
+    <div class="card-date">February - June 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://thedefensepost.com/2026/02/25/avio-virginia-rocket-facility/" class="source-link" target="_blank">The Defense Post / Avio &rarr;</a></div>
   </div>
 </div>
 
-<!-- CARD: Mynaric -->
-<div class="card hot-pipeline" data-pipeline="hot" data-type="ma" data-owner="kyle">
+<!-- CARD: Terma A/S -->
+<div class="card hot-pipeline" data-pipeline="hot" data-type="award" data-owner="kyle">
   <div class="card-top">
     <div>
-      <div class="company-name">Mynaric</div>
-      <div class="company-meta">Germany &nbsp;|&nbsp; Laser Optical Communications</div>
+      <div class="company-name">Terma A/S</div>
+      <div class="company-meta">Denmark | Defence & Space Electronics</div>
     </div>
     <div class="stage-badge stage-hot">Discovery Call Booked</div>
   </div>
   <span class="alert-badge">&#128293; Hot Deal</span>
-  <div class="tags"><span class="tag ma">Rocket Lab Acquisition</span><span class="tag contract">ESA HydRON</span></div>
-  <div class="summary">Rocket Lab completed its $155.3M acquisition of Mynaric, beating a competing bid from Rheinmetall, and is scaling laser communications production out of Mynaric's Munich site - Rocket Lab's first European footprint. Mynaric separately won an ESA contract to build a laser comms demo system for the HydRON project.</div>
+  <div class="tags"><span class="tag award">Record Order Backlog</span></div>
+  <div class="summary">Terma closed its 2025/26 financial year with a record-high order backlog and continued earnings growth, reinforcing its position as a core European defence and space electronics supplier. The company continues to expand its footprint across satellite and radar systems programmes.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Mynaric is now Rocket Lab's European anchor and has fresh ESA money behind it. Kyle has a strong reason to reopen the conversation - a bigger, better-funded Mynaric with a European manufacturing story is worth more stand space, not less.</div>
+    <div class="outreach-text">A record backlog means Terma has budget and momentum right now. Kyle should use the strong financial year as the reason to lock in the Discovery Call before their calendar fills up with delivery commitments.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">14 April 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.stocktitan.net/news/RKLB/rocket-lab-completes-mynaric-acquisition-adding-laser-optical-q4ec17ymwoa2.html" class="source-link" target="_blank">StockTitan &rarr;</a></div>
+    <div class="card-date">Recent - FY2025/26 results</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.terma.com/news-events/news/" class="source-link" target="_blank">Terma News &rarr;</a></div>
   </div>
 </div>
 
 </div>
-
 <div class="section-header">
-  <span class="section-label section-label-autumn">&#127810; Autumn Close</span>
-  <span class="section-count">2 companies</span>
+  <span class="section-label section-label-autumn">&#127810; Autumn Close &amp; Nurture</span>
+  <span class="section-count">4 companies</span>
 </div>
 <div class="day-grid">
+
+<!-- CARD: Redwire Space -->
+<div class="card autumn-close" data-pipeline="autumn" data-type="contract" data-owner="cameron">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Redwire Space</div>
+      <div class="company-meta">USA | In-Space Manufacturing</div>
+    </div>
+    <div class="stage-badge stage-autumn">Autumn Close</div>
+  </div>
+  <div class="tags"><span class="tag contract">ESA Quantum Satellite</span><span class="tag partnership">SpaceMD Subsidiary</span></div>
+  <div class="summary">Redwire will develop a quantum-secure satellite under ESA's Quantum Key Distribution Satellite (QKDSat) programme. The company also formed a dedicated subsidiary, SpaceMD, to commercialise pharmaceutical products made in orbit, having already flown 54 automated micro-labs and tested 37 drug compounds. Two senior Redwire executives were recently poached by rival Varda.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">Redwire is diversifying into pharma manufacturing and picking up sovereign European contracts at the same time - plenty of fresh material for the Autumn Close conversation. Cameron can lean on the QKDSat win to keep momentum through to close.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">April 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.satellitetoday.com/technology/2026/04/03/redwire-wins-european-quantum-satellite-contract/" class="source-link" target="_blank">Via Satellite &rarr;</a></div>
+  </div>
+</div>
 
 <!-- CARD: Airbus -->
 <div class="card autumn-close" data-pipeline="autumn" data-type="contract" data-owner="christie">
   <div class="card-top">
     <div>
       <div class="company-name">Airbus</div>
-      <div class="company-meta">France/Germany &nbsp;|&nbsp; Satellites &amp; Space Systems</div>
+      <div class="company-meta">France/Europe | Satellites & Earth Observation</div>
     </div>
     <div class="stage-badge stage-autumn">Nurture</div>
   </div>
-  <div class="tags"><span class="tag contract">Aeolus-2 (ESA)</span><span class="tag contract">SpainSat NG III</span></div>
-  <div class="summary">Airbus signed the initial ESA contract to design and build the Aeolus-2 wind-sensing satellite, and on 31 July won the SpainSat NG III secure communications satellite contract with Thales Alenia Space for Spanish operator Hisdesat - a 48-month programme running to a 2030 launch.</div>
+  <div class="tags"><span class="tag contract">ESA Aeolus-2</span></div>
+  <div class="summary">Airbus Defence and Space signed the contract to design and build the Aeolus-2 wind-sensing satellite for ESA in July, and separately joined a consortium with Rohde & Schwarz, constellr, Orbint and HPS to build a sovereign European satellite-based Earth observation and ISR capability.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Two major European government satellite wins in the same month keeps Airbus firmly in "we need to be visible to European government buyers" mode. Good timing for Christie to move this out of nurture and into a real close conversation.</div>
+    <div class="outreach-text">Airbus is doubling down on sovereign European space right now - both through Aeolus-2 and the ISR consortium. Christie can use the sovereignty angle to re-open the nurture conversation: Space-Comm is where that European buyer audience actually sits.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">31 July 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.satellitetoday.com/government-military/2026/08/03/airbus-and-thales-alenia-space-to-build-spainsat-ng-iii/" class="source-link" target="_blank">Via Satellite &rarr;</a></div>
+    <div class="card-date">July 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.airbus.com/en/newsroom/press-releases/2026-07-airbus-awarded-aeolus-2-wind-sensing-satellite-contract" class="source-link" target="_blank">Airbus Newsroom &rarr;</a></div>
   </div>
 </div>
 
-<!-- CARD: Slingshot Aerospace -->
-<div class="card autumn-close" data-pipeline="autumn" data-type="contract" data-owner="christie">
+<!-- CARD: Rocket Factory Augsburg AG -->
+<div class="card autumn-close" data-pipeline="autumn" data-type="launch" data-owner="kyle">
   <div class="card-top">
     <div>
-      <div class="company-name">Slingshot Aerospace, Inc.</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Space Domain Awareness &amp; AI</div>
+      <div class="company-name">Rocket Factory Augsburg AG</div>
+      <div class="company-meta">Germany | Launch Vehicles</div>
     </div>
-    <div class="stage-badge stage-autumn">Nurture</div>
+    <div class="stage-badge stage-autumn">Autumn Close</div>
   </div>
-  <div class="tags"><span class="tag contract">$69.2M USSF Contract</span></div>
-  <div class="summary">Slingshot Aerospace has won a $69.2M US Space Force contract to advance AI-powered mission readiness for space defence, backing the service's wider digital transformation push.</div>
+  <div class="tags"><span class="tag launch">RFA One Delay</span></div>
+  <div class="summary">RFA discovered a technical issue during pre-launch testing of its RFA One rocket at SaxaVord Spaceport, pushing back what would have been the UK's first vertical orbital launch. The company remains on track for its debut window despite the setback.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">A near-$70M defence win is real budget and real credibility. Christie should use this as the reason to bring Slingshot back into an active close conversation rather than leaving them in nurture through autumn.</div>
+    <div class="outreach-text">The delay keeps RFA in the news cycle and gives Kyle a natural reason to check in - momentum toward a historic first launch is still a strong hook for the Autumn Close conversation.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">2026</div>
-    <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://www.slingshot.space/news/slingshot-aerospace-wins-69-2-million-u-s-space-force-contract-to-advance-ai-powered-mission-readiness-for-space-defense" class="source-link" target="_blank">Slingshot Aerospace &rarr;</a></div>
+    <div class="card-date">Early August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.primetimer.com/features/uk-space-industry-eyes-major-growth-despite-delay-in-first-british-rocket-launch" class="source-link" target="_blank">PRIMETIMER &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: GomSpace -->
+<div class="card autumn-close" data-pipeline="autumn" data-type="funding" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">GomSpace</div>
+      <div class="company-meta">Denmark/Sweden | Nanosatellites</div>
+    </div>
+    <div class="stage-badge stage-autumn">Autumn Close</div>
+  </div>
+  <div class="tags"><span class="tag funding">EUR 7M Drawdown</span></div>
+  <div class="summary">GomSpace secured a EUR 815,000 authorisation to proceed plus a EUR 7M drawdown under its third funding tranche, while order intake rose 104% year-on-year in Q1 2026. The company also secured 1.8M EUR of new product orders in early April.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">Fresh capital and order intake more than doubling gives Kyle a concrete reason to push GomSpace toward close now, while the budget conversation is live.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">Q1 2026 / April 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://gomspace.com/investor/news/press-releases/" class="source-link" target="_blank">GomSpace Investor News &rarr;</a></div>
   </div>
 </div>
 
 </div>
-
 <div class="section-header">
   <span class="section-label section-label-engagement">&#128172; Engagement</span>
-  <span class="section-count">8 companies</span>
+  <span class="section-count">17 companies</span>
 </div>
 <div class="day-grid">
 
-<!-- CARD: Redwire Space -->
-<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="cameron">
-  <div class="card-top">
-    <div>
-      <div class="company-name">Redwire Space</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Space Infrastructure &amp; ISR</div>
-    </div>
-    <div class="stage-badge stage-engagement">Engagement</div>
-  </div>
-  <div class="tags"><span class="tag contract">Record Q2 Revenue</span><span class="tag contract">$542M Backlog</span></div>
-  <div class="summary">Redwire posted record Q2 2026 revenue of $117.1M with a 27.8% gross margin and a $542.1M backlog, driven by follow-on Stalker Block 30 awards and new Penguin UAS contracts, including a multi-year, high-eight-figure NATO country deal.</div>
-  <div class="outreach">
-    <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Record revenue and a NATO contract win is exactly the growth story Redwire will want in front of European government buyers. Cameron should use the earnings beat to push engagement toward a firmer commitment.</div>
-  </div>
-  <div class="card-footer">
-    <div class="card-date">5 August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.sec.gov/Archives/edgar/data/0001819810/000181981026000121/exhibit991redwire06302026e.htm" class="source-link" target="_blank">SEC Filing &rarr;</a></div>
-  </div>
-</div>
-
-<!-- CARD: Firefly Aerospace -->
+<!-- CARD: Varda Space Industries -->
 <div class="card engagement" data-pipeline="engagement" data-type="launch" data-owner="cameron">
   <div class="card-top">
     <div>
-      <div class="company-name">Firefly Aerospace</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Launch Vehicles &amp; Lunar Landers</div>
+      <div class="company-name">Varda Space Industries</div>
+      <div class="company-meta">USA | In-Space Manufacturing & Hypersonics</div>
     </div>
     <div class="stage-badge stage-engagement">Engagement</div>
   </div>
-  <div class="tags"><span class="tag launch">Q2 Results Today</span></div>
-  <div class="summary">Firefly Aerospace reports Q2 2026 financial results on 11 August 2026, off the back of its successful Alpha Flight 7 launch in March, which placed a Lockheed Martin demonstrator payload into orbit from Vandenberg.</div>
+  <div class="tags"><span class="tag launch">6th Mission</span><span class="tag partnership">Poached Redwire Execs</span></div>
+  <div class="summary">Varda completed its sixth mission and first launch of 2026, advancing autonomous hypersonic flight testing alongside its pharmaceutical manufacturing work. The company has also hired two senior executives away from rival Redwire - Molly Mulligan as president and Ken Savin as chief scientific officer.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Earnings day is a natural reason to reach out - ask how the year's shaping up and where Space-Comm fits their 2027 European growth plans. Cameron should time contact for right after the results land.</div>
+    <div class="outreach-text">Varda is scaling its leadership team and its mission cadence at the same time - a good moment for Cameron to check in and see if that growth translates into exhibiting appetite for 2027.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">11 August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.stocktitan.net/news/FLY/firefly-aerospace-to-announce-second-quarter-2026-financial-results-vbzgcuyb0xa1.html" class="source-link" target="_blank">StockTitan &rarr;</a></div>
+    <div class="card-date">May - August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://spacenews.com/tag/varda-space-industries/" class="source-link" target="_blank">SpaceNews &rarr;</a></div>
   </div>
 </div>
 
-<!-- CARD: Northrop Grumman -->
-<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
+<!-- CARD: True Anomaly -->
+<div class="card engagement" data-pipeline="engagement" data-type="funding" data-owner="danny">
   <div class="card-top">
     <div>
-      <div class="company-name">Northrop Grumman</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Defence &amp; Space Systems</div>
+      <div class="company-name">True Anomaly</div>
+      <div class="company-meta">USA | Space Domain Awareness & Defence</div>
     </div>
     <div class="stage-badge stage-engagement">Engagement</div>
   </div>
-  <div class="tags"><span class="tag contract">$398M Space Force</span></div>
-  <div class="summary">Northrop Grumman secured a $398M US Space Force contract to develop an Enhanced Protected Tactical SATCOM Prototype on its GEOStar-3 bus, hardening military comms against jamming and cyber threats - alongside a separate $3B+ THAAD production framework signed this month.</div>
+  <div class="tags"><span class="tag funding">$650M Series D</span><span class="tag contract">US Space Force Kronos</span></div>
+  <div class="summary">True Anomaly raised $650M in a Series D round in April to scale its autonomous spacecraft, payloads and space-based interceptor lines, targeting 500+ employees by year-end. In July it was selected to deliver its Mosaic software for the US Space Force's Kronos Advanced Battle Management programme, and it recently executed the first-ever space-to-space pursuit of an evading target.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Northrop's satcom and missile defence business is expanding fast on both sides of the Atlantic. Danny can position Space-Comm 2027 as where they meet the European primes and governments they'll need for the next wave of protected-comms programmes.</div>
+    <div class="outreach-text">This is a company with fresh capital, a major Space Force software win, and a genuine industry first behind it. Danny should use the funding and Kronos selection to push the engagement toward a real conversation about exhibiting.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://www.govconwire.com/articles/space-force-northrop-enhanced-ptsp-award" class="source-link" target="_blank">GovConWire &rarr;</a></div>
-  </div>
-</div>
-
-<!-- CARD: Thales Alenia Space -->
-<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
-  <div class="card-top">
-    <div>
-      <div class="company-name">Thales Alenia Space</div>
-      <div class="company-meta">France/Italy &nbsp;|&nbsp; Satellites &amp; Space Systems</div>
-    </div>
-    <div class="stage-badge stage-engagement">Engagement</div>
-  </div>
-  <div class="tags"><span class="tag contract">SpainSat NG III</span><span class="tag contract">Polish GEO Satellite</span></div>
-  <div class="summary">Thales Alenia Space, with Airbus, won the SpainSat NG III secure comms satellite contract from Hisdesat (31 July), and separately signed with Airbus and RADMOR to build a geostationary defence telecoms satellite for Poland.</div>
-  <div class="outreach">
-    <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Two sovereign European government satellite wins back-to-back - Thales Alenia is clearly a first call for European defence comms right now. Kyle should use that momentum to move engagement toward a firmer stand commitment.</div>
-  </div>
-  <div class="card-footer">
-    <div class="card-date">31 July 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.janes.com/osint-insights/defence-news/air/thales-alenia-space-radmor-and-airbus-sign-deal-for-geo-communications-satellites-for-poland" class="source-link" target="_blank">Janes &rarr;</a></div>
-  </div>
-</div>
-
-<!-- CARD: Kepler Communications -->
-<div class="card engagement" data-pipeline="engagement" data-type="partnership" data-owner="cameron">
-  <div class="card-top">
-    <div>
-      <div class="company-name">Kepler Communications</div>
-      <div class="company-meta">Canada &nbsp;|&nbsp; Optical Data Relay Satellites</div>
-    </div>
-    <div class="stage-badge stage-engagement">Engagement</div>
-  </div>
-  <div class="tags"><span class="tag partnership">On-Orbit Compute</span><span class="tag partnership">New Customer: Sophia Space</span></div>
-  <div class="summary">Kepler Communications has commissioned distributed on-orbit computing across its Tranche 1 optical data relay constellation - the world's first commercially operational optical relay network - and signed its 18th customer, orbital-compute startup Sophia Space.</div>
-  <div class="outreach">
-    <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">Kepler is building genuine infrastructure and stacking customers - a credible, well-funded story for European buyers. Cameron should use the Sophia Space win as a fresh reason to check back in.</div>
-  </div>
-  <div class="card-footer">
-    <div class="card-date">April 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/" class="source-link" target="_blank">TechCrunch &rarr;</a></div>
-  </div>
-</div>
-
-<!-- CARD: Sierra Space -->
-<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
-  <div class="card-top">
-    <div>
-      <div class="company-name">Sierra Space</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Space Vehicles &amp; Infrastructure</div>
-    </div>
-    <div class="stage-badge stage-engagement">Engagement</div>
-  </div>
-  <div class="tags"><span class="tag contract">$1.75B SDA Award</span><span class="tag contract">Golden Dome</span></div>
-  <div class="summary">The Space Development Agency awarded Sierra Space and L3Harris roughly $1.75B combined to field missile warning and tracking satellites supporting the Golden Dome initiative - 36 space vehicles across four orbital planes, targeting launch by end-2028.</div>
-  <div class="outreach">
-    <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">A near-billion-dollar defence award is a big budget signal. Kyle should use it to reopen the conversation with Sierra Space about their European growth plans and where Space-Comm 2027 fits.</div>
-  </div>
-  <div class="card-footer">
-    <div class="card-date">14 July 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.militarytimes.com/industry/techwatch/2026/07/14/space-force-agency-awards-tech-companies-175-billion-contract-for-missile-warning-tracking-satellites/" class="source-link" target="_blank">Military Times &rarr;</a></div>
+    <div class="card-date">April - July 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://www.businesswire.com/news/home/20260428626943/en/True-Anomaly-Raises-$650-Million-Series-D-Financing-to-Accelerate-Space-Superiority-at-Scale" class="source-link" target="_blank">BusinessWire / Aviation Week &rarr;</a></div>
   </div>
 </div>
 
 <!-- CARD: AST SpaceMobile -->
-<div class="card engagement" data-pipeline="engagement" data-type="launch" data-owner="danny">
+<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
   <div class="card-top">
     <div>
       <div class="company-name">AST SpaceMobile</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Direct-to-Device Satellite Connectivity</div>
+      <div class="company-meta">USA | Direct-to-Device Satcom</div>
     </div>
     <div class="stage-badge stage-engagement">Engagement</div>
   </div>
-  <div class="tags"><span class="tag launch">BlueBird 11-13 Launched</span><span class="tag partnership">200Mbps D2D</span></div>
-  <div class="summary">SpaceX launched AST SpaceMobile's BlueBird 11-13 satellites from Cape Canaveral, the third mission supporting the company's direct-to-device constellation, which is now demonstrating 200Mbps connectivity direct to standard smartphones.</div>
+  <div class="tags"><span class="tag contract">$30M SDA Contract</span><span class="tag launch">BlueBird Satellites</span></div>
+  <div class="summary">AST SpaceMobile now has 13 satellites in orbit with a revenue backlog approaching $1.3 billion, targeting 45+ launches in 2026. It holds a $30M prime contract from the US Space Development Agency for the HALO Europa programme, and SpaceX flew three more BlueBird direct-to-cell satellites for the constellation in August.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">AST is scaling its constellation fast and will want mobile operator and government partners across Europe watching. Danny should use the launch milestone to re-engage on where they see Space-Comm 2027 fitting their go-to-market.</div>
+    <div class="outreach-text">Backlog approaching $1.3bn and a live government contract - AST SpaceMobile has real budget to talk about. Danny can use the SDA win as the reason to deepen the engagement conversation now.</div>
   </div>
   <div class="card-footer">
     <div class="card-date">August 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://spaceflightnow.com/" class="source-link" target="_blank">Spaceflight Now &rarr;</a></div>
+    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-ast-spacemobile-11-13-direct-to-cell-satellites" class="source-link" target="_blank">Space.com / BusinessWire &rarr;</a></div>
   </div>
 </div>
 
@@ -457,29 +415,330 @@
   <div class="card-top">
     <div>
       <div class="company-name">SpaceX</div>
-      <div class="company-meta">USA &nbsp;|&nbsp; Launch &amp; Satellite Constellations</div>
+      <div class="company-meta">USA | Launch & Satellite Constellations</div>
     </div>
     <div class="stage-badge stage-engagement">Engagement</div>
   </div>
-  <div class="tags"><span class="tag contract">$1.6B Space Force Order</span><span class="tag contract">18 Falcon 9 Launches</span></div>
-  <div class="summary">On 29 July 2026 the US Space Force awarded SpaceX a $1.6B order for 18 Falcon 9 launches through 2027, on top of a $4.16B threat-detection satellite contract and $2.29B comms backbone award built on the Starshield platform.</div>
+  <div class="tags"><span class="tag contract">$6.5B+ Space Force Deals</span></div>
+  <div class="summary">SpaceX has stacked up nearly $6.5 billion in new US military contracts this year, including $4.16B for a missile-detection constellation and $2.29B for a communications backbone, both on the Starshield platform, plus a further $1.6B order for 18 Falcon 9 launches through 2027.</div>
   <div class="outreach">
     <div class="outreach-label">Space-Comm Outreach Angle</div>
-    <div class="outreach-text">SpaceX's defence book is growing fast on the government side - a useful hook for Kyle to talk about the European government and defence buyers in the room at Space-Comm 2027 who are watching Starshield closely.</div>
+    <div class="outreach-text">SpaceX's defence business is compounding fast - Kyle should keep tabs on this even at engagement stage, since a company hoovering up this much government budget is worth a periodic check-in on exhibiting plans.</div>
   </div>
   <div class="card-footer">
-    <div class="card-date">29 July 2026</div>
-    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://breakingdefense.com/2026/07/spacex-wins-1-6b-to-launch-space-force-sensing-and-targeting-sats/" class="source-link" target="_blank">Breaking Defense &rarr;</a></div>
+    <div class="card-date">May - July 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://spaceeconomyinstitute.com/2026/07/31/spacex-1-6-billion-space-force-contract-launch-economy/" class="source-link" target="_blank">Space Economy Institute / CNBC &rarr;</a></div>
   </div>
+</div>
+
+<!-- CARD: Firefly Aerospace -->
+<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="cameron">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Firefly Aerospace</div>
+      <div class="company-meta">USA | Launch Vehicles & Lunar</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag contract">NASA Moon Base</span><span class="tag launch">Alpha Block 2 Delay</span></div>
+  <div class="summary">Firefly was selected alongside Astrolab, Lunar Outpost and Blue Origin for NASA Moon Base contracts, and was picked to build the spacecraft for the MoonFall mission deploying drones near the Artemis landing sites. The company has pushed its Alpha Block 2 rocket debut to Q4 2026.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A NASA Moon Base contract is a serious credibility marker. Cameron should use it to reframe the engagement conversation around Firefly's growing lunar business, not just launch.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">2026 (ongoing)</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.govconwire.com/articles/nasa-moon-base-contract-awards-4-companies" class="source-link" target="_blank">GovConWire &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Sierra Space -->
+<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Sierra Space</div>
+      <div class="company-meta">USA | Space Vehicles & Missile Defence</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag contract">$1.75B SDA Deal</span></div>
+  <div class="summary">The Space Development Agency awarded Sierra Space and L3Harris a combined $1.75 billion to field missile warning and tracking satellites for the Golden Dome initiative, covering 36 space vehicles across four orbital planes with launches expected by end of 2028.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A $1.75bn Golden Dome award changes the scale of conversation Kyle can have with Sierra Space - worth revisiting engagement with a bigger exhibiting pitch.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">14 July 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.militarytimes.com/industry/techwatch/2026/07/14/space-force-agency-awards-tech-companies-175-billion-contract-for-missile-warning-tracking-satellites/" class="source-link" target="_blank">Military Times &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: UMBRA -->
+<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="cameron">
+  <div class="card-top">
+    <div>
+      <div class="company-name">UMBRA</div>
+      <div class="company-meta">USA | SAR Satellite Imagery</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag contract">NRO Sole-Source Deal</span></div>
+  <div class="summary">UMBRA, alongside IonQ's Capella Space and ICEYE US, received a sole-source Radar Commercial Augmentation contract from the National Reconnaissance Office for commercial synthetic aperture radar imagery - a strong vote of confidence from a top-tier US government buyer.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">An NRO sole-source award puts UMBRA in rarefied company. Cameron should use this as a reason to accelerate the engagement conversation while their government relationships are front of mind.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://spaceflightnow.com/2026/08/" class="source-link" target="_blank">Spaceflight Now &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Neuraspace -->
+<div class="card engagement" data-pipeline="engagement" data-type="funding" data-owner="cameron">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Neuraspace</div>
+      <div class="company-meta">Portugal | Space Traffic Management</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag funding">EUR 15.6M Raise</span></div>
+  <div class="summary">Neuraspace raised EUR 15.6M on 6 August for its AI-enabled Space Domain Awareness and Space Traffic Management platform, backed by Lince Capital, Explorer Investments and Armilar Venture Partners, plus Portugal's Recovery and Resilience Plan.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">Fresh Portuguese and EU-backed funding gives Cameron a clean opener to re-engage - ask what the new capital means for their 2027 exhibiting plans.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">6 August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.finsmes.com/2026/08/neuraspace-raises-e15-6m-in-new-funding.html" class="source-link" target="_blank">FinSMEs &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Space Forge -->
+<div class="card engagement" data-pipeline="engagement" data-type="award" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Space Forge</div>
+      <div class="company-meta">UK (Wales) | In-Space Manufacturing</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag award">GBP13M Swansea Hub</span></div>
+  <div class="summary">Space Forge opened a GBP13 million hub in Swansea, linking microgravity chip production with Welsh semiconductor research and manufacturing - a significant vote of confidence in UK-based in-space manufacturing infrastructure.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A new GBP13m facility on home turf is a great local-angle hook - Kyle can use it to push the engagement conversation toward a UK-pride pitch for Space-Comm.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">August 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://orbitaltoday.com/space/uk-space-industry/" class="source-link" target="_blank">Orbital Today &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Rivada Space Networks -->
+<div class="card engagement" data-pipeline="engagement" data-type="launch" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Rivada Space Networks</div>
+      <div class="company-meta">Germany/USA | LEO Communications Constellation</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag launch">Outernet Demo Mission</span></div>
+  <div class="summary">Rivada Space Networks confirmed plans to fly the first demonstration mission of its 600-satellite laser-linked "Outernet" constellation in 2026, targeting commercial connectivity services from 2027 - a mesh network designed to operate without touching terrestrial internet infrastructure.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A concrete demo mission date gives Kyle a real news hook to move the engagement conversation forward - ask how they plan to tell the Outernet story to European buyers in 2027.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">January 2026 (ongoing)</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://satnews.com/2026/01/09/rivada-space-networks-time-for-an-announcement/" class="source-link" target="_blank">SatNews &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Planet -->
+<div class="card engagement" data-pipeline="engagement" data-type="award" data-owner="cameron">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Planet</div>
+      <div class="company-meta">USA | Earth Observation</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag award">216% Backlog Growth</span></div>
+  <div class="summary">Planet Labs reported a 216% year-over-year increase in backlog to roughly $900 million and achieved adjusted EBITDA profitability for the first time, projecting 39% revenue growth for fiscal 2027.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A company hitting profitability for the first time with backlog up 216% has budget appetite - Cameron should use the results to push the engagement conversation toward a bigger commitment.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">Fiscal 2026 results</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://www.cmcmarkets.com/en/optox/pl-stock-earnings-review-the-skys-the-limit-for-planet-labs" class="source-link" target="_blank">CMC Markets &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Thales Alenia Space -->
+<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Thales Alenia Space</div>
+      <div class="company-meta">France/Italy | Satellites & Space Systems</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag contract">NASA HALO Module</span><span class="tag contract">Sentinel-1 NG</span></div>
+  <div class="summary">Thales Alenia Space was selected by Northrop Grumman to provide the pressurised module for NASA's HALO lunar outpost, and separately won the prime contractor role for two Copernicus Sentinel-1 NG satellites for ESA.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">Two major institutional wins in one window - Kyle can use both to reframe the engagement conversation around Thales's growing lunar and Earth observation credentials.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">2026 (ongoing)</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.thalesgroup.com/en/worldwide/space/press-release/thales-alenia-space-chosen-northrop-grumman-provide-pressurized" class="source-link" target="_blank">Thales Group &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Northrop Grumman -->
+<div class="card engagement" data-pipeline="engagement" data-type="contract" data-owner="danny">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Northrop Grumman</div>
+      <div class="company-meta">USA | Space Systems & Defence</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag contract">ISS Deorbit / Cygnus</span></div>
+  <div class="summary">NASA issued Northrop Grumman a sole-source award for two additional Cygnus cargo missions in 2028 and 2029 under its Commercial Resupply Services 2 contract, alongside its ongoing HALO module partnership with Thales Alenia Space for Artemis.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">Steady, long-horizon NASA commitments show Northrop's space division isn't slowing down - Danny can use the Cygnus extension to keep the engagement conversation warm.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">2026 (ongoing)</div>
+    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://spacenews.com/northrop-grumman-selected-to-provide-cargo-services-for-final-phase-of-iss/" class="source-link" target="_blank">SpaceNews &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: OroraTech -->
+<div class="card engagement" data-pipeline="engagement" data-type="launch" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">OroraTech</div>
+      <div class="company-meta">Germany | Wildfire Detection Satellites</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag launch">SAFIRE Gen4 Sensors</span></div>
+  <div class="summary">OroraTech successfully launched four SAFIRE Gen4 sensor payloads aboard Kepler Communications' next-generation satellites via SpaceX in January, setting the path toward the first-ever thermal livestream of Earth in partnership with Kepler.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A joint mission with fellow pipeline company Kepler Communications is a nice double hook - Kyle could even bring both into the same conversation about Space-Comm.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">January 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://ororatech.com/resources/news-blog/ororatech-and-kepler-to-launch-world-s-first-thermal-livestream-of-earth" class="source-link" target="_blank">OroraTech Newsroom &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Kepler Communications -->
+<div class="card engagement" data-pipeline="engagement" data-type="partnership" data-owner="cameron">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Kepler Communications</div>
+      <div class="company-meta">Canada | Satellite Data Relay</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag partnership">Hosted Payload Call</span></div>
+  <div class="summary">Kepler issued a call for hosted payloads seeking persistent, real-time LEO data streaming, with integration starting for its 2027 hosted missions and Tranche 2 deployment in 2028 - alongside its ongoing thermal-livestream partnership with OroraTech.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">Kepler is actively recruiting partners for 2027 missions right now - Cameron should use the payload call as a live, timely reason to re-engage.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">2026 (ongoing)</div>
+    <div class="footer-right"><span class="owner-pill owner-cameron">Cameron</span><a href="https://spacenews.com/kepler-communications-call-for-live-stream-payload-concepts/" class="source-link" target="_blank">SpaceNews &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Satellogic -->
+<div class="card engagement" data-pipeline="engagement" data-type="award" data-owner="danny">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Satellogic</div>
+      <div class="company-meta">USA/Argentina | Earth Observation</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag award">80% Revenue Growth</span></div>
+  <div class="summary">Satellogic reported Q1 2026 revenue up 80% year-over-year as it expands defence and intelligence partnerships under its "Constellation-as-a-Service" model, claiming satellite manufacturing costs as low as $1M per unit.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">80% revenue growth and a defence-partnership push give Danny a strong reason to move Satellogic further along in the engagement conversation.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">Q1 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-danny">Danny</span><a href="https://spacenexus.us/compare/satellogic-vs-planet-labs" class="source-link" target="_blank">Company reporting &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CARD: Blacksky -->
+<div class="card engagement" data-pipeline="engagement" data-type="award" data-owner="christie">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Blacksky</div>
+      <div class="company-meta">USA | Earth Observation & Intelligence</div>
+    </div>
+    <div class="stage-badge stage-engagement">Engagement</div>
+  </div>
+  <div class="tags"><span class="tag award">50%+ Growth Guidance</span></div>
+  <div class="summary">BlackSky reported Q1 2026 revenue of $20.8M, down year-over-year, but management guided to over 50% revenue growth for 2026 on the back of strong contract momentum, operating roughly 18 Gen-2 Earth observation satellites with same-day AI-analysed imagery via its Spectra platform.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A dip now with a strong growth guide ahead is a good "turning the corner" story - Christie can use the 2026 growth outlook to keep momentum in the engagement conversation.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">Q1 2026</div>
+    <div class="footer-right"><span class="owner-pill owner-christie">Christie</span><a href="https://fintel.io/topic/blacksky-vs-planet-1-8511" class="source-link" target="_blank">Fintel &rarr;</a></div>
+  </div>
+</div>
+
+</div>
+<div class="section-header">
+  <span class="section-label section-label-cold">&#10052; Cold Outreach</span>
+  <span class="section-count">1 companies</span>
+</div>
+<div class="day-grid">
+
+<!-- CARD: Astroscale -->
+<div class="card cold-outreach" data-pipeline="cold" data-type="contract" data-owner="kyle">
+  <div class="card-top">
+    <div>
+      <div class="company-name">Astroscale</div>
+      <div class="company-meta">Japan/UK | Space Debris Removal & In-Orbit Servicing</div>
+    </div>
+    <div class="stage-badge stage-cold">Cold Outreach</div>
+  </div>
+  <div class="tags"><span class="tag contract">GEO Refuelling Mission</span><span class="tag funding">Y6.31B ISSA-J1 Phase 2</span></div>
+  <div class="summary">Astroscale and Orbit Fab plan to launch their first refuelling mission in GEO for the US Space Force this year. Astroscale also received approval to move to Phase 2 of the ISSA-J1 debris-reduction project, with up to Y6.31 billion in funding running through December 2026, and its ELSA-M de-orbit mission is set to fly on an Isar Aerospace launch in 2027.</div>
+  <div class="outreach">
+    <div class="outreach-label">Space-Comm Outreach Angle</div>
+    <div class="outreach-text">A live US Space Force mission plus a fresh Japanese government funding tranche is exactly the kind of news that should pull Astroscale out of cold outreach - Kyle has a real reason to restart the conversation.</div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">2026 (ongoing)</div>
+    <div class="footer-right"><span class="owner-pill owner-kyle">Kyle</span><a href="https://www.tipranks.com/news/company-announcements/astroscale-advances-in-space-debris-reduction-project" class="source-link" target="_blank">TipRanks &rarr;</a></div>
+  </div>
+</div>
+
 </div>
 
 </div>
 
 <div class="no-results" id="noResults">No matches for this filter combination.</div>
 
-</div>
-
-<div class="footer">Tracking <strong>493 companies</strong> across the Space-Comm Expo Europe 2027 pipeline &middot; Briefing generated 11 August 2026</div>
+<div class="footer">Tracking <strong>500 companies</strong> across the Space-Comm Expo Europe 2027 pipeline &middot; Briefing generated 12 August 2026</div>
 
 <script>
 let activeStage = 'all';
